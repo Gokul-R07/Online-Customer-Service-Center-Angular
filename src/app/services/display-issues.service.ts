@@ -9,7 +9,7 @@ export class DisplayIssuesService {
 
   constructor(private httpClient:HttpClient) { }
   getAllIssues():Observable<any>{
-    return this.httpClient.get('http://localhost:8080/issues/');
+    return this.httpClient.get('http://localhost:8080/issues');
   }
 
 }
