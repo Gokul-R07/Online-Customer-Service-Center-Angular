@@ -1,11 +1,11 @@
 export class Issue{
     public issueType: string="";
-    public issueCreationDate:Date=new Date();
-    public issueUpdationdate:Date=new Date();
+    public issueCreationDate:Date=new Date("2024-06-23");
+    public issueUpdationdate:Date=new Date("2024-06-23");
     public ticketclose:boolean=false;
-    public issueStatus:string="";
+    public issueStatus:string="unsolved";
     public issueDescription:string="";
-    public issueId?:number;
+    public issueId?:number | undefined;
     constructor(){
         
     } 
