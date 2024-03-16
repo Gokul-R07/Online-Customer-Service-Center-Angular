@@ -1,3 +1,4 @@
+
 import { Issue } from "./issue";
 
 export class Customer{

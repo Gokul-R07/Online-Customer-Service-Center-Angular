@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CreateIssueService } from '../../services/CreateIssue.service';
 import { Customer } from '../../model/customer';
 import { Issue } from '../../model/issue';
@@ -10,10 +9,10 @@ import { NgToastService} from 'ng-angular-popup';
   templateUrl: './create-issue.component.html',
   styleUrls: ['./create-issue.component.css']
 })
-export class CreateIssueComponent  {
-// addIssueToCustomer() {
-// throw new Error('Method not implemented.');
-// }
+
+export class CreateIssueComponent
+{
+
 
   customer:Customer=new Customer()
   issue:Issue=new Issue()
