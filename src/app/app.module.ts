@@ -11,12 +11,15 @@ import { NgToastModule } from 'ng-angular-popup'
 import { GetIssuesByCustomerIdComponent } from './customer/components/get-issues-by-customer-id/get-issues-by-customer-id.component';
 import { DisplayIssuesComponent } from './customer/components/display-issues/display-issues.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     CreateIssueComponent,
     GetIssuesByCustomerIdComponent,
-    DisplayIssuesComponent
+    DisplayIssuesComponent,
+   
+
   ],
   imports: [
     BrowserModule,
@@ -24,8 +27,8 @@ import { DisplayIssuesComponent } from './customer/components/display-issues/dis
     FormsModule,
     CommonModule,
     HttpClientModule,
-BrowserAnimationsModule,
-NgToastModule
+    BrowserAnimationsModule,
+    NgToastModule
 
   ],
   providers: [],
