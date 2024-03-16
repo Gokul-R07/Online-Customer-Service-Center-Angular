@@ -1,0 +1,9 @@
+<p>get-issues-by-customer-id works!</p>
+
+
+
+<form name="issue" (submit)="getIssuesByCustomerId()">
+    <label class="form-label" for="customerId">Enter customer id: </label>
+    <input type="number" id="customerId" name="customerId" required [(ngModel)]="customer.customerId"><br>
+    <input type="submit" value="Get-Issues-By-CustomerId">
+</form>

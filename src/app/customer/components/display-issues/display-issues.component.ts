@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { DisplayIssuesService } from 'src/app/services/display-issues.service';
+import { DisplayIssuesService } from 'src/app/customer/services/display-issues.service';
 import { Customer } from '../../model/customer';
 import { Issue } from '../../model/issue';
 

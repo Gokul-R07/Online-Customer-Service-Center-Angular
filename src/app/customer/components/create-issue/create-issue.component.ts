@@ -8,7 +8,8 @@ import { Issue } from '../../model/issue';
   templateUrl: './create-issue.component.html',
   styleUrls: ['./create-issue.component.css']
 })
-export class CreateIssueComponent {
+export class CreateIssueComponent
+{
 // addIssueToCustomer() {
 // throw new Error('Method not implemented.');
 // }
