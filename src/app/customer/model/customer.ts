@@ -1,3 +1,4 @@
+
 import { Issue } from "./issue";
 
 export class Customer{
@@ -8,7 +9,5 @@ export class Customer{
     public phoneNumber:number | undefined;
     public issueList:Issue[]=new Array();
     public customerId?:number | undefined;
-    constructor(){
-        
-    } 
+   
 }

@@ -1,43 +1,25 @@
-<p>create-issue works!</p>
-<form name="issue" (submit)="addIssueToCustomer()">
-    <label class="form-label" for="customerId">Enter customer id: </label>
-    <input type="number" id="customerId" name="customerId" required [(ngModel)]="customer.customerId"><br>
-    <label class="form-label" for="issueType">Enter the type of issue: </label>
-    <select class="form-select" name="issueType" id="issueType" for="issueType" required [(ngModel)]="issue.issueType">
-        <option value="Engine problems">Engine problems</option>
-        <option value="Transmission issues">Transmission issues</option>
-        <option value="Electrical system malfunctions">Electrical system malfunctions</option>
-        <option value="Brake system failures">Brake system failures</option>
-        <option value="Suspension problems">Suspension problems</option>
-        <option value="Cooling system troubles">Cooling system troubles</option>
-        <option value="Steering issues">Steering issues</option>
-        <option value="Exhaust system malfunctions">Exhaust system malfunctions</option>
-        <option value="Fuel system problems">Fuel system problems</option>
-        <option value="1Tire-related issues">Tire-related issues</option>
-    </select><br>
-    <label class="form-label" for="issueCreationDate">Enter the creation date of the issue:  </label>
-    <input type="date" id="issueCreationDate" name="issueCreationDate" required [(ngModel)]="issue.issueCreationDate"><br>
-    <label class="form-label" for="issueUpdationDate">Enter the updation date of the issue: </label>
-    <input type="date" id="issueUpdationDate" name="issueUpdationDate" required [(ngModel)]="issue.issueUpdationdate" ><br>
-    <label class="form-label" for="ticketclose">Do you wish to close the ticket? </label>
-        <label>
-        <input type="radio" id="yes" name="ticketclose" value="Yes" required [(ngModel)]="issue.ticketclose">
-        Yes    
-        </label>
-        <label>
-        <input type="radio" id="no" name="ticketclose" value="no" required [(ngModel)]="issue.ticketclose">
-        No
-        </label><br>
-        <label class="form-label" for="issueStatus">What is the issue Status? </label>
-      <select class="form-select" name="issueStatus" id="issueStatus" for="issueStatus" required [(ngModel)]="issue.issueStatus" >
-            <option value="open">Open</option>
-            <option value="inProgress">In Progress</option>
-            <option value="pending">Pending</option>
-            <option value="resolved">Resolved</option>
-            <option value="closed">Closed</option>
-         </select>
-         <br>
-        <label class="form-label" for="issueDescription">Enter the description of issue: </label>
-        <input type="text" id="issueDescription" name="issueDescription" required [(ngModel)]="issue.issueDescription"><br>
-    <input type="submit" value="Create-Issue">
-</form>
+
+<div class="container mt-5">
+    <form name="issue" (submit)="addIssueToCustomer()">
+        <div class="form-group">
+            <label for="issueType" class="form-label"><b>Enter the type of issue:</b></label>
+            <select class="form-control" size="3" name="issueType" id="issueType" required [(ngModel)]="issue.issueType" >
+                <option value="Engine problems">Engine problems</option>
+                <option value="Transmission issues">Transmission issues</option>
+                <option value="Electrical system malfunctions">Electrical system malfunctions</option>
+                <option value="Brake system failures">Brake system failures</option>
+                <option value="Suspension problems">Suspension problems</option>
+                <option value="Cooling system troubles">Cooling system troubles</option>
+                <option value="Steering issues">Steering issues</option>
+                <option value="Exhaust system malfunctions">Exhaust system malfunctions</option>
+                <option value="Fuel system problems">Fuel system problems</option>
+                <option value="Tire-related issues">Tire-related issues</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="issueDescription" class="form-label"><b>Enter the description of issue: </b></label>
+            <textarea class="form-control" rows="5" id="issueDescription" name="issueDescription" required [(ngModel)]="issue.issueDescription"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary"><b>Save</b></button>
+    </form>
+</div>
