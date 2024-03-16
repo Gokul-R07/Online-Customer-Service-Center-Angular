@@ -7,3 +7,16 @@
     <input type="number" id="customerId" name="customerId" required [(ngModel)]="customer.customerId"><br>
     <input type="submit" value="Get-Issues-By-CustomerId">
 </form>
+
+
+
+  <div class="container">
+    <h1 class="mt-3">All Issues</h1>
+    <div class="row mt-3">
+      <div class="col-md-12" *ngFor="let issue of data">
+        <app-issue-card [issue]="issue"></app-issue-card>
+      </div>
+    </div>
+  </div>
+  
+  

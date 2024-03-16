@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgToastModule } from 'ng-angular-popup'
 import { GetIssuesByCustomerIdComponent } from './customer/components/get-issues-by-customer-id/get-issues-by-customer-id.component';
 import { DisplayIssuesComponent } from './customer/components/display-issues/display-issues.component';
+import { IssueCardComponent } from './customer/components/issue-card/issue-card.component';
+import { DeleteIssueComponent } from './customer/components/delete-issue/delete-issue.component';
 
 
 @NgModule({
@@ -18,8 +20,8 @@ import { DisplayIssuesComponent } from './customer/components/display-issues/dis
     CreateIssueComponent,
     GetIssuesByCustomerIdComponent,
     DisplayIssuesComponent,
-   
-
+    IssueCardComponent,
+    DeleteIssueComponent,
   ],
   imports: [
     BrowserModule,
