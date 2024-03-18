@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { GetIssuesByCustomerIdService } from '../../services/get-issues-by-customer-id.service';
 import { Customer } from '../../model/customer';
 import { Issue } from '../../model/issue';
+import { IssueCardComponent } from '../issue-card/issue-card.component';
 
 @Component({
   selector: 'app-get-issues-by-customer-id',
@@ -14,22 +15,26 @@ export class GetIssuesByCustomerIdComponent {
   issue:Issue=new Issue()
   data:any
   error:string=""
-  constructor(private getIssuesByCustomerIdService: GetIssuesByCustomerIdService,private router:Router) { }
-  getIssuesByCustomerId(){
-    this.getIssuesByCustomerIdService. getIssuesByCustomerId(this.customer.customerId).subscribe(
-      {
-        next: (data) => {
-          console.log(data);
-          this.error=""
-          this.data = data;
-        },
-        error: (err) => {
-          this.error=err.error
-          console.log(err)
-        }
+  constructor(private getIssuesByCustomerIdService: GetIssuesByCustomerIdService,private router:Router) {
+    this.getIssuesByCustomerIdService.getIssuesByCustomerId(5402).subscribe(
+      (data: Issue[]) => {
+        console.log(data);
+        this.error = "";
+        this.data = data;
+      },
+      (error) => {
+        this.error = error.message; // Update error handling as needed
+        console.error(error);
       }
-    )
-  }
+    );
+   }
+  
+
+  getIssuesByCustomerId() {
+    
+
+}
+
 
 
 }

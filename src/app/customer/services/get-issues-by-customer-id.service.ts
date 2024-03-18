@@ -12,4 +12,6 @@ export class GetIssuesByCustomerIdService {
   getIssuesByCustomerId(customerId: number | undefined):Observable<any>{
     return this.httpClient.get(`http://localhost:8080/issues/${customerId}`);
   }
+
+  
 }

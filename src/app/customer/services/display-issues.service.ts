@@ -12,4 +12,8 @@ export class DisplayIssuesService {
     return this.httpClient.get('http://localhost:8080/issues');
   }
 
+  updateIssueDescription(customerId:number|undefined, issueId:number, issueDescription:String):Observable<any>{
+    return this.httpClient.put(`http://localhost:8080/issue/update/{customerId}/{issueId}`, issueDescription);
+  }
+
 }

@@ -22,6 +22,12 @@ import { GetIssuesByCustomerIdComponent } from './customer/components/get-issues
 import { DisplayIssuesComponent } from './customer/components/display-issues/display-issues.component';
 import { CustomerComponent } from './customer/components/customer/customer.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { IssueCardComponent } from './customer/components/issue-card/issue-card.component';
+import { DeleteIssueComponent } from './customer/components/delete-issue/delete-issue.component';
+import { UpdateIssueComponent } from './customer/components/update-issue/update-issue.component';
+import { NavbarComponent } from './customer/components/navbar/navbar.component';
+import { FooterComponent  as CustomerFooter} from './customer/components/customer-footer/customer-footer.component';
+import { HeaderComponent as CustomerHeader } from './customer/components/customer-header/customer-header.component';
 
 import { OperatorModuleComponent } from './operator/components/operator-module/operator-module.component';
 import { TableModule } from 'primeng/table';
@@ -38,8 +44,12 @@ import { TableModule } from 'primeng/table';
     DisplayIssuesComponent,
     CustomerComponent,
     HomepageComponent,
-   
-
+    IssueCardComponent,
+    DeleteIssueComponent,
+    UpdateIssueComponent,
+    NavbarComponent,
+    CustomerFooter,
+    CustomerHeader
   ],
   imports: [
     BrowserModule,

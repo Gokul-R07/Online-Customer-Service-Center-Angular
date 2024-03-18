@@ -1,0 +1,13 @@
+.footer {
+    background-color:  #110965;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  
+  /* Set the footer to stick to the bottom */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  }
+  

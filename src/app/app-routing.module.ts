@@ -6,10 +6,12 @@ import { GetIssuesByCustomerIdComponent } from './customer/components/get-issues
 import { CustomerComponent } from './customer/components/customer/customer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { OperatorModuleComponent } from './operator/components/operator-module/operator-module.component';
+import { UpdateIssueComponent } from './customer/components/update-issue/update-issue.component';
 const routes: Routes = [
   {path:'create-issue',component:CreateIssueComponent},
   {path:'display-issues',component:DisplayIssuesComponent},
   {path:'get-issues-by-customer-id',component:GetIssuesByCustomerIdComponent},
+  {path:'upate-issue', component:UpdateIssueComponent},
   {path:'customer',component:CustomerComponent},
   {path:"home",component:HomepageComponent},
   {

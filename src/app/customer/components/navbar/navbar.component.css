@@ -1,0 +1,23 @@
+
+
+.custom-navbar{
+  background-color: rgb(58, 216, 244);
+  margin: 2px;
+}
+
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+
+
