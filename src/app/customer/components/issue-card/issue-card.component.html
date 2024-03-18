@@ -1,4 +1,4 @@
-<p>issue-card works!</p>
+
 
 
 
@@ -9,9 +9,9 @@
       <p class="card-text">Created on: {{ issue.issueCreationDate | date }}</p>
       <p class="card-text">Status: {{ issue.issueStatus }}</p>
     </div>
-    <div class="card-footer ">
+    <div class="card-footer d-flex justify-content-between">
       <button type="button" class="btn btn-primary">Update</button>
-      <button type="button" class="btn btn-danger" >Delete</button>
+      <button type="submit" class="btn btn-danger" (onsubmit)="deleteIssue(5402, 5002)" >Delete</button>
     </div>
   </div>
 

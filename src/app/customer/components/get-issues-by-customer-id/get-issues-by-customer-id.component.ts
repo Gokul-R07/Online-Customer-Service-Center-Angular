@@ -15,11 +15,8 @@ export class GetIssuesByCustomerIdComponent {
   issue:Issue=new Issue()
   data:any
   error:string=""
-  constructor(private getIssuesByCustomerIdService: GetIssuesByCustomerIdService,private router:Router) { }
-  
-
-  getIssuesByCustomerId() {
-    this.getIssuesByCustomerIdService.getIssuesByCustomerId(this.customer.customerId).subscribe(
+  constructor(private getIssuesByCustomerIdService: GetIssuesByCustomerIdService,private router:Router) {
+    this.getIssuesByCustomerIdService.getIssuesByCustomerId(5402).subscribe(
       (data: Issue[]) => {
         console.log(data);
         this.error = "";
@@ -30,6 +27,12 @@ export class GetIssuesByCustomerIdComponent {
         console.error(error);
       }
     );
+   }
+  
+
+  getIssuesByCustomerId() {
+    
+
 }
 
 

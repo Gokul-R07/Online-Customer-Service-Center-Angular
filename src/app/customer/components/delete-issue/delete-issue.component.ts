@@ -15,6 +15,7 @@ export class DeleteIssueComponent {
   deleteIssue(customerId: number, issueId: number) {
     this.deleteIssueService.deleteIssue(customerId, issueId).subscribe(
       () => {
+        
         console.log('Issue deleted successfully');
         // Add any additional logic or handling
       },

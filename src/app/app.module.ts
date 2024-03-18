@@ -12,6 +12,10 @@ import { GetIssuesByCustomerIdComponent } from './customer/components/get-issues
 import { DisplayIssuesComponent } from './customer/components/display-issues/display-issues.component';
 import { IssueCardComponent } from './customer/components/issue-card/issue-card.component';
 import { DeleteIssueComponent } from './customer/components/delete-issue/delete-issue.component';
+import { UpdateIssueComponent } from './customer/components/update-issue/update-issue.component';
+import { NavbarComponent } from './customer/components/navbar/navbar.component';
+import { FooterComponent } from './customer/components/footer/footer.component';
+import { HeaderComponent } from './customer/components/header/header.component';
 
 
 @NgModule({
@@ -22,6 +26,10 @@ import { DeleteIssueComponent } from './customer/components/delete-issue/delete-
     DisplayIssuesComponent,
     IssueCardComponent,
     DeleteIssueComponent,
+    UpdateIssueComponent,
+    NavbarComponent,
+    FooterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

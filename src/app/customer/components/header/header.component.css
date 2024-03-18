@@ -1,0 +1,18 @@
+.header {
+    background-color: #110965;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    height: 40px; /* Adjust the height of the logo as needed */
+    margin-right: 10px; /* Add margin between the logo and title */
+  }
+  
+  .title {
+    font-size: 1.5rem; /* Adjust the font size of the title */
+    font-weight: bold;
+  }
+  
