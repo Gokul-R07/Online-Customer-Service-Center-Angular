@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
 import { Customer } from '../modal-interfaces/customer';
 import { Operator } from '../modal-interfaces/operator';
@@ -43,16 +43,15 @@ export class AuthenticationComponent implements OnInit  {
     console.log('gokul')
   }
 
-  createLoginForm(){
-    this.loginForm=this.fb.group({
-      
-      email: [{ value: '', disabled: false }],
-      password: [{ value: '', disabled: false }],
-      userType: [{ value: 'Customer', disabled: false }],
-      
-    })
-
+  createLoginForm() {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      userType: ['Customer', Validators.required]
+    });
   }
+  
+
   createRegisterForm(){
     this.registerForm=this.fb.group({
       
@@ -71,6 +70,14 @@ export class AuthenticationComponent implements OnInit  {
 
 
   login(){ 
+   
+    
+    this.loginForm.markAllAsTouched();
+    // if (this.loginForm.controls['password'].value.length < 8) {
+    //   this.toastr.error('Login Failed',"Password length is less than 8 character");
+    //   return;
+
+    // }
     const userTypeValue = this.loginForm.get('userType')?.value;
 
     switch (userTypeValue) {
@@ -79,12 +86,12 @@ export class AuthenticationComponent implements OnInit  {
           next: (response: Customer) => {
             console.log('String response from backend:', response);
             this.toastr.success('Login Sucess');
-            this.router.navigate(['/customer']);
+            this.router.navigate(['/customer'],{ state: { activeCustomerDetails: response }});
             
           },
           error: (error) => {
             console.error('Error:', error.error);
-            this.toastr.error('Login Failed');
+            this.toastr.error('Login Failed',error.error);
           }
         });
         break;
@@ -93,10 +100,11 @@ export class AuthenticationComponent implements OnInit  {
           next: (response: Operator) => {
             console.log('String response from backend:', response);
             this.toastr.success('Login Sucess');
+            this.router.navigate(['/operator'],{ state: { activeOperatorDetails: response }});
           },
           error: (error) => {
             console.error('Error:', error.error);
-            this.toastr.error('Login Failed');
+            this.toastr.error('Login Failed',error.error.message);
           }
         });
         break;
@@ -108,7 +116,7 @@ export class AuthenticationComponent implements OnInit  {
           },
           error: (error) => {
             console.error('Error:', error.error);
-            this.toastr.error('Login Failed');
+            this.toastr.error('Login Failed',error.error);
           }
         });
         break;
@@ -116,8 +124,36 @@ export class AuthenticationComponent implements OnInit  {
         console.log('Invalid User Type');
     }
   }
-  register(){ 
-    console.log(this.registerForm.value)
+  register(){
+    if (this.registerForm.controls['firstName'].value.length ==0) {
+      this.toastr.error('Register Failed',"First name is mandatory");
+      return;
+    } 
+    else if (this.registerForm.controls['lastName'].value.length ==0) {
+      this.toastr.error('Regsiter Failed',"Last name is mandatory");
+      return;
+    }
+    else if (this.registerForm.controls['email'].value.length ==0) {
+      this.toastr.error('Regsiter Failed',"Email is mandatory");
+      return;
+    }
+
+    else if (this.registerForm.controls['password'].value.length < 8) {
+      this.toastr.error('Login Failed',"Password length is less than 8 character");
+      return;
+    }
+    else if (this.registerForm.controls['phoneNumber'].value.length ==0) {
+      this.toastr.error('Regsiter Failed',"Phone Number is mandatory");
+      return;
+    }
+    else if (this.registerForm.controls['phoneNumber'].value.length !=10) {
+      this.toastr.error('Regsiter Failed',"Phone Number should be 10 digit");
+      return;
+    }
+    else if (this.registerForm.controls['city'].value.length ==0) {
+      this.toastr.error('Regsiter Failed',"City is mandatory");
+      return;
+    }
     const userTypeValue = this.registerForm.get('userType')?.value;
 
     switch (userTypeValue) {
@@ -125,9 +161,15 @@ export class AuthenticationComponent implements OnInit  {
         this.authenticationService.customerRegister(this.registerForm.value).subscribe({
           next: (response: Customer) => {
             console.log('String response from backend:', response);
+            this.toastr.success('Register Sucess');
+            this.authenticationType="login"
+            this.registerForm.reset();
+
+
           },
           error: (error) => {
             console.error('Error:', error.error);
+            this.toastr.error('Register Failed',error.error);
           }
         });
         break;
@@ -135,9 +177,14 @@ export class AuthenticationComponent implements OnInit  {
         this.authenticationService.operatorRegister(this.registerForm.value).subscribe({
           next: (response: Operator) => {
             console.log('String response from backend:', response);
+            this.toastr.success('Register Sucess');
+            this.authenticationType="login"
+            this.registerForm.reset();
+
           },
           error: (error) => {
             console.error('Error:', error.error);
+            this.toastr.error('Register Failed',error.error);
           }
         });
         break;

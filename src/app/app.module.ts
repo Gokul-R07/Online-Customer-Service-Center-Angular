@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { ButtonModule } from 'primeng/button';
 import { SelectButtonModule } from 'primeng/selectbutton';
@@ -10,6 +10,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PasswordModule } from 'primeng/password';
+import { InputTextModule } from 'primeng/inputtext';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -21,10 +23,13 @@ import { DisplayIssuesComponent } from './customer/components/display-issues/dis
 import { CustomerComponent } from './customer/components/customer/customer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 
+import { OperatorModuleComponent } from './operator/components/operator-module/operator-module.component';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
     AppComponent,
+    OperatorModuleComponent,
     HeaderComponent,
     FooterComponent,
     AuthenticationComponent,
@@ -48,6 +53,12 @@ import { HomepageComponent } from './homepage/homepage.component';
     RadioButtonModule,
     BrowserAnimationsModule, 
     ToastrModule.forRoot(),
+    AppRoutingModule,
+    TableModule,
+    HttpClientModule,
+    ButtonModule,
+    PasswordModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

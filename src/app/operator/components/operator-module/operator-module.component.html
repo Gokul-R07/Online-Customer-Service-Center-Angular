@@ -1,0 +1,45 @@
+<div class="heading-container">
+    <div class="heading">
+        <h2>Operator Service</h2>
+    </div>
+</div>
+
+<div class="operator-label">
+    <label for="operator-name" >Welcome : {{operator}}, Task Allocated !</label>
+</div>
+
+<div class="grid w-full justify-content-center align-item-center">
+    <div class="col-6 grid">
+        <label class="Allocated-issue" >Allocated Issue</label>
+    </div>
+
+</div>
+
+<div class="grid w-full justify-content-center align-items-center" id="main">
+    <div class="col-8 grid">
+        <div class="col-12">
+            <table>
+                <tr>
+                  <th>Issue</th>
+                  <th>Issue Status</th>
+                </tr>
+                <!-- <tr *ngFor="let item of data">
+                    <td>{{ item.issue }}</td>
+                    <td [ngClass]="{ 'completed': item.status === 'Completed', 'pending': item.status === 'Pending' }">{{ item.status }}</td>
+                 </tr> -->
+                  <tr>
+                    <td>Hardware component breakage</td>
+                    <td class="completed">Completed</td>
+                  </tr>
+                  <tr>
+                    <td>Software - malware suspicions</td>
+                    <td class="pending">Pending</td>
+                  </tr>
+              </table>
+              <div class="button-container">
+                <p-button label="Get Pending" [loading]="loading" (onClick)="load()" id="#Button"></p-button>
+                
+            </div>
+        </div>
+    </div>
+</div>

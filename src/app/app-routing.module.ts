@@ -5,6 +5,7 @@ import { DisplayIssuesComponent } from './customer/components/display-issues/dis
 import { GetIssuesByCustomerIdComponent } from './customer/components/get-issues-by-customer-id/get-issues-by-customer-id.component';
 import { CustomerComponent } from './customer/components/customer/customer.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { OperatorModuleComponent } from './operator/components/operator-module/operator-module.component';
 const routes: Routes = [
   {path:'create-issue',component:CreateIssueComponent},
   {path:'display-issues',component:DisplayIssuesComponent},
@@ -16,10 +17,16 @@ const routes: Routes = [
     redirectTo: '/home',
     pathMatch: 'full'
 },
+{
+  path: 'operator',
+  component: OperatorModuleComponent,
+},
 
 
 
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
