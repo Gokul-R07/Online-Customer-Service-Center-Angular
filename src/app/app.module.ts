@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +7,8 @@ import { OperatorModuleComponent } from './operator/components/operator-module/o
 import { TableModule } from 'primeng/table';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
+import { BootstrapOptions } from '@angular/core';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { ButtonModule } from 'primeng/button';
     AppRoutingModule,
     TableModule,
     HttpClientModule,
-    ButtonModule
+    ButtonModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

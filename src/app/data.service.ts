@@ -7,11 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 
+ 
   private apiUrl = 'http://localhost:8080/Issue-Status';
 
   constructor(private http: HttpClient) { }
 
-  getData(): Observable<any> {
+  getKeyValues(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
 }

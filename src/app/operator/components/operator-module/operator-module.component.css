@@ -4,7 +4,7 @@
     align-items: center;
     margin: 0 auto;
     text-align: center;
-    background-color: mediumseagreen;
+    background-color: mediumaquamarine;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 50px;
 }
@@ -65,17 +65,10 @@ table {
     color: red;
   }
 
-  #Button{
-    justify-content: center;
-    width: 15px;
-    margin-top: 10px;
-  }
-
-  .button-container{
-    
-    justify-content: center;
-    align-items: center;
-    margin-top: 8%;
+  .button{
+    margin-top: 10%;
     margin-left: 35%;
 
   }
+
+
