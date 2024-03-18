@@ -43,13 +43,13 @@ export class AuthenticationComponent implements OnInit  {
     console.log('gokul')
   }
 
-  createLoginForm() {
-    this.loginForm = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      userType: ['Customer', Validators.required]
-    });
-  }
+  createLoginForm(){ this.loginForm=this.fb.group({
+    email: [{ value: '', disabled: false }],
+    password: [{ value: '', disabled: false }],
+    userType: [{ value: 'Customer', disabled: false }],
+    
+  })
+}
   
 
   createRegisterForm(){
@@ -72,12 +72,12 @@ export class AuthenticationComponent implements OnInit  {
   login(){ 
    
     
-    this.loginForm.markAllAsTouched();
-    // if (this.loginForm.controls['password'].value.length < 8) {
-    //   this.toastr.error('Login Failed',"Password length is less than 8 character");
-    //   return;
+    // this.loginForm.markAllAsTouched();
+    if (this.loginForm.controls['password'].value.length < 8) {
+      this.toastr.error('Login Failed',"Password length is less than 8 character");
+      return;
 
-    // }
+    }
     const userTypeValue = this.loginForm.get('userType')?.value;
 
     switch (userTypeValue) {
