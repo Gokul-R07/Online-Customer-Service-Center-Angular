@@ -1,0 +1,87 @@
+<div class="grid" id="authContainer">
+    <div class="col" id="leftSideDiv">
+            <img src="https://img.freepik.com/free-vector/flat-design-illustration-customer-support_23-2148887720.jpg?w=996&t=st=1710611810~exp=1710612410~hmac=85decdf44be5e57858a5195741eed81e782beae441c2f98f97af4eb63c93c3c4" alt="" class="w-6">
+    </div>
+    <div class="col" id="rightSideDiv">
+        <p-selectButton [options]="options"  optionLabel="label" optionValue="value" [(ngModel)]="authenticationType" class=""></p-selectButton>
+
+        <form [formGroup]="loginForm" *ngIf="authenticationType=='login'"> 
+            <div class="">
+                <div class="col-12">
+                    <span class="p-input-icon-left">
+                        <!-- <i class="pi pi-envelope"></i> -->
+                        <input type="text" pInputText formControlName="email" placeholder="Email Address" [style]="{'width': '100%'}" />
+                    </span>
+                </div>
+                <div class="col-12">
+                    <span class="p-input-icon-left">
+                        <!-- <i class="pi pi-lock"></i> -->
+                        <input type="password" pInputText formControlName="password" placeholder="Password" />
+                    </span>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <div class="flex align-items-center" *ngFor="let user of loginUserTypes">
+                        <p-radioButton [inputId]="user.key" [value]="user.value" formControlName="userType"></p-radioButton>
+                        <label [for]="user.key" class="ml-2">{{ user.value }}</label>
+                    </div>
+                </div>
+                
+                    <button pButton label="Login" (click)="login()" > </button>
+            </div>
+        </form>
+        <div *ngIf="authenticationType=='register'">
+            <form [formGroup]="registerForm" > 
+                <div class="">
+                    <div class="flex flex-wrap gap-3">
+                        <div class="flex align-items-center" *ngFor="let user of registerUserTypes">
+                            <p-radioButton [inputId]="user.key" [value]="user.value" formControlName="userType"></p-radioButton>
+                            <label [for]="user.key" class="ml-2">{{ user.value }}</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <span class="p-input-icon-left">
+                            <input type="text" pInputText formControlName="firstName" placeholder="Enter First Name" [style]="{'width': '100%'}" />
+                        </span>
+                    </div>
+                    <div class="col-12">
+                        <span class="p-input-icon-left">
+                            <input type="text" pInputText formControlName="lastName" placeholder="Enter Last Name" [style]="{'width': '100%'}" />
+                        </span>
+                    </div>
+
+
+                    <div class="col-12">
+                        <span class="p-input-icon-left">
+                            <input type="text" pInputText formControlName="email" placeholder="Email Address" [style]="{'width': '100%'}" />
+                        </span>
+                    </div>
+                    <div class="col-12">
+                        <span class="p-input-icon-left">
+                            <input type="password" pInputText formControlName="password" placeholder="Password" />
+                        </span>
+                    </div>
+                    <div class="col-12"  *ngIf="registerForm.get('userType')?.value === 'Operator'">
+                        <span class="p-input-icon-left">
+                            <input type="text" pInputText formControlName="departmentName" placeholder="Department Name" />
+                        </span>
+                    </div>
+                    <div class="col-12" *ngIf="registerForm.get('userType')?.value !== 'Admin' ">
+                        <span class="p-input-icon-left">
+                            <input type="text" pInputText formControlName="phoneNumber" placeholder="Phone Number" />
+                        </span>
+                    </div>
+                    <div class="col-12" *ngIf="registerForm.get('userType')?.value !== 'Admin' ">
+                        <span class="p-input-icon-left">
+                            <input type="text" pInputText formControlName="city" placeholder="City" />
+                        </span>
+                    </div>
+
+                    
+                    
+                        <button pButton label="Register" (click)="register()" > </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

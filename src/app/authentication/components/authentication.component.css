@@ -1,0 +1,14 @@
+#authContainer{
+    min-height: 87vh;
+}
+#leftSideDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#rightSideDiv{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+   gap:50px
+}
