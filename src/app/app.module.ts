@@ -15,7 +15,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthenticationComponent } from './authentication/components/authentication.component';
-
+import { CreateIssueComponent } from './customer/components/create-issue/create-issue.component';
+import { GetIssuesByCustomerIdComponent } from './customer/components/get-issues-by-customer-id/get-issues-by-customer-id.component';
+import { DisplayIssuesComponent } from './customer/components/display-issues/display-issues.component';
+import { CustomerComponent } from './customer/components/customer/customer.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 @NgModule({
@@ -23,7 +27,14 @@ import { AuthenticationComponent } from './authentication/components/authenticat
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    CreateIssueComponent,
+    GetIssuesByCustomerIdComponent,
+    DisplayIssuesComponent,
+    CustomerComponent,
+    HomepageComponent,
+   
+
   ],
   imports: [
     BrowserModule,
