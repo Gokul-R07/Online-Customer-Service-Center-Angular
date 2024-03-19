@@ -1,16 +1,16 @@
-<div class="grid" id="authContainer">
+<div  id="authContainer">
     <div class="col" id="leftSideDiv">
-            <img src="https://img.freepik.com/free-vector/flat-design-illustration-customer-support_23-2148887720.jpg?w=996&t=st=1710611810~exp=1710612410~hmac=85decdf44be5e57858a5195741eed81e782beae441c2f98f97af4eb63c93c3c4" alt="" class="w-6">
+            <img src="https://img.freepik.com/free-vector/flat-design-illustration-customer-support_23-2148887720.jpg?w=996&t=st=1710611810~exp=1710612410~hmac=85decdf44be5e57858a5195741eed81e782beae441c2f98f97af4eb63c93c3c4" alt="" class="w-9">
     </div>
     <div class="col" id="rightSideDiv">
         <p-selectButton [options]="options"  optionLabel="label" optionValue="value" [(ngModel)]="authenticationType"  ></p-selectButton>
 
         <form [formGroup]="loginForm" *ngIf="authenticationType=='login'"> 
-            <div class="">
+            <div class="" id="loginContainer">
                 <div class="col-12">
                     <span class="p-input-icon-left">
                         <!-- <i class="pi pi-envelope"></i> -->
-                        <input pInputText  formControlName="email" placeholder="Email Address" type="text" class="px-6 py-2.5"  required/>
+                        <input pInputText  formControlName="email" placeholder="ENTER EMAIL" type="text" class="px-6 py-2.5"  required/>
 
                     </span>
                 </div>
@@ -18,7 +18,7 @@
                     <span class="p-input-icon-left">
                         <!-- <i class="pi pi-lock"></i> -->
                         <!-- <input type="password" pInputText formControlName="password" placeholder="Password" /> -->
-                        <p-password  formControlName="password" required placeholder="Password"  minlength="8" [feedback]="false" [toggleMask]="true" ></p-password>
+                        <p-password  formControlName="password" required placeholder="ENTER PASSWORD"  minlength="8" [feedback]="false" [toggleMask]="true" ></p-password>
                     </span>
                 </div>
                 <div class="flex flex-wrap gap-3">
@@ -28,12 +28,12 @@
                     </div>
                 </div>
                 
-                    <button pButton label="Login" (click)="login()" class="border-round px-2 py-1" > </button>
+                    <button pButton label="Login" (click)="login()" class="border-round px-4 py-2" > </button>
             </div>
         </form>
         <div *ngIf="authenticationType=='register'">
             <form [formGroup]="registerForm" > 
-                <div class="">
+                <div class="" id="registerContainer">
                     <div class="flex flex-wrap gap-3">
                         <div class="flex align-items-center" *ngFor="let user of registerUserTypes">
                             <p-radioButton [inputId]="user.key" [value]="user.value" formControlName="userType"></p-radioButton>
@@ -42,46 +42,41 @@
                     </div>
                     <div class="col-12">
                         <span class="p-input-icon-left">
-                            <input type="text" pInputText formControlName="firstName" placeholder="Enter First Name" [style]="{'width': '100%'}" class="px-6 py-2.5" />
+                            <input type="text" pInputText formControlName="firstName" placeholder="ENTER FIRST NAME" [style]="{'width': '100%'}" class="px-6 py-2.5" />
                         </span>
-                    </div>
-                    <div class="col-12">
                         <span class="p-input-icon-left">
-                            <input type="text" pInputText formControlName="lastName" placeholder="Enter Last Name" [style]="{'width': '100%'}" class="px-6 py-2.5"/>
+                            <input type="text" pInputText formControlName="lastName" placeholder="ENTER LAST NAME" [style]="{'width': '100%'}" class="px-6 py-2.5"/>
                         </span>
                     </div>
 
 
                     <div class="col-12">
                         <span class="p-input-icon-left">
-                            <input type="text" pInputText formControlName="email" required placeholder="Email Address" [style]="{'width': '100%'}" class="px-6 py-2.5" />
+                            <input type="text" pInputText formControlName="email" required placeholder="ENTER EMAIL" [style]="{'width': '100%'}" class="px-6 py-2.5" />
                         </span>
-                    </div>
-                    <div class="col-12">
                         <span class="p-input-icon-left">
                             <!-- <input type="password" pInputText formControlName="password" required placeholder="Password" minlength="8" /> -->
-                            <p-password  formControlName="password" required placeholder="Password" minlength="8" [toggleMask]="true"></p-password>
+                            <p-password  formControlName="password" required placeholder="ENTER PASSWORD" minlength="8" [toggleMask]="true"></p-password>
+                        </span>
+                    </div>
+                    
+                    <div class="col-12" *ngIf="registerForm.get('userType')?.value !== 'Admin' ">
+                        <span class="p-input-icon-left"> 
+                            <input type="text" pInputText formControlName="phoneNumber" placeholder="ENTER PHONE NUMBER" class="px-6 py-2.5" />
+                        </span>
+                        <span class="p-input-icon-left">
+                            <input type="text" pInputText formControlName="city" placeholder="ENTER CITY"  class="px-6 py-2.5"/>
                         </span>
                     </div>
                     <div class="col-12"  *ngIf="registerForm.get('userType')?.value === 'Operator'">
                         <span class="p-input-icon-left">
-                            <input type="text" pInputText formControlName="departmentName" placeholder="Department Name" class="px-6 py-2.5"/>
-                        </span>
-                    </div>
-                    <div class="col-12" *ngIf="registerForm.get('userType')?.value !== 'Admin' ">
-                        <span class="p-input-icon-left"> 
-                            <input type="text" pInputText formControlName="phoneNumber" placeholder="Phone Number" class="px-6 py-2.5" />
-                        </span>
-                    </div>
-                    <div class="col-12" *ngIf="registerForm.get('userType')?.value !== 'Admin' ">
-                        <span class="p-input-icon-left">
-                            <input type="text" pInputText formControlName="city" placeholder="City"  class="px-6 py-2.5"/>
+                            <input type="text" pInputText formControlName="departmentName" placeholder="DEPARTMENT NAME" class="px-6 py-2.5"/>
                         </span>
                     </div>
 
                     
                     
-                        <button pButton label="Register" (click)="register()" class="border-round px-2 py-1" > </button>
+                        <button pButton label="Register" (click)="register()" class="border-round px-4 py-2" > </button>
                 </div>
             </form>
 

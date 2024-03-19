@@ -1,5 +1,8 @@
 #authContainer{
-    min-height: 87vh;
+    min-height: 89vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #leftSideDiv{
     display: flex;
@@ -7,8 +10,24 @@
     align-items: center;
 }
 #rightSideDiv{
+    /* border:2px solid red; */
+    flex:1.5;
     display: flex;
     flex-direction: column;
    align-items: center;
-   gap:50px
+   justify-content: center;
+   gap:20px
+}
+#loginContainer{
+    background-color: aliceblue;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    border-radius: 10px;
+}
+#registerContainer{
+    background-color: aliceblue;
+    padding: 30px;
+    border-radius: 10px;
 }

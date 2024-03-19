@@ -8,11 +8,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { OperatorModuleComponent } from './operator/components/operator-module/operator-module.component';
 import { UpdateIssueComponent } from './customer/components/update-issue/update-issue.component';
 const routes: Routes = [
-  {path:'create-issue',component:CreateIssueComponent},
   {path:'display-issues',component:DisplayIssuesComponent},
-  {path:'get-issues-by-customer-id',component:GetIssuesByCustomerIdComponent},
   {path:'upate-issue', component:UpdateIssueComponent},
-  {path:'customer',component:CustomerComponent},
   {path:"home",component:HomepageComponent},
   {
     path: '',
@@ -23,7 +20,14 @@ const routes: Routes = [
   path: 'operator',
   component: OperatorModuleComponent,
 },
-
+{
+  path: 'customer',
+  component: CustomerComponent,
+  children: [
+    { path: 'create-issue', component: CreateIssueComponent },
+    { path: 'get-all-issues', component:GetIssuesByCustomerIdComponent }
+  ]
+}
 
 
 ];

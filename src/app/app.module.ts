@@ -9,9 +9,11 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { DropdownModule } from 'primeng/dropdown';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { ToastrModule } from 'ngx-toastr';
+import { NgToastModule } from 'ng-angular-popup'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -49,7 +51,7 @@ import { TableModule } from 'primeng/table';
     UpdateIssueComponent,
     NavbarComponent,
     CustomerFooter,
-    CustomerHeader
+    CustomerHeader,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,8 @@ import { TableModule } from 'primeng/table';
     HttpClientModule,
     ButtonModule,
     PasswordModule,
-    InputTextModule
+    InputTextModule,
+    NgToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

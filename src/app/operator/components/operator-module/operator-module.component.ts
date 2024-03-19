@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from 'src/app/data.service';
-import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +13,7 @@ export class OperatorModuleComponent implements OnInit {
   data: any;
   operator="yashwanth";
   operatorDetails: any;
-  constructor(private dataService: DataService,private route: ActivatedRoute,private router: Router) { }
+  constructor(private dataService: DataService,private router: Router) { }
 
   loading: boolean = false;
 

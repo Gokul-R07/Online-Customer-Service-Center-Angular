@@ -4,6 +4,7 @@ import { CreateIssueService } from '../../services/CreateIssue.service';
 import { Customer } from '../../model/customer';
 import { Issue } from '../../model/issue';
 import { NgToastService} from 'ng-angular-popup';
+
 @Component({
   selector: 'app-create-issue',
   templateUrl: './create-issue.component.html',
@@ -21,7 +22,7 @@ export class CreateIssueComponent
   
   constructor(private CreateIssueService: CreateIssueService,private router:Router,private toast:NgToastService) { }
   addIssueToCustomer(){
-    this.CreateIssueService. addIssueToCustomer(5402,this.issue).subscribe(
+    this.CreateIssueService. addIssueToCustomer(1,this.issue).subscribe(
       {
         next: (data) => {
           this.toast.success({detail:"Success Message", summary:"Issue creation is success", duration:5000});

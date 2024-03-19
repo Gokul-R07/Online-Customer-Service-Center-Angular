@@ -40,7 +40,6 @@ export class AuthenticationComponent implements OnInit  {
   }
   ngOnInit(): void {
    
-    console.log('gokul')
   }
 
   createLoginForm(){ this.loginForm=this.fb.group({
@@ -73,6 +72,11 @@ export class AuthenticationComponent implements OnInit  {
    
     
     // this.loginForm.markAllAsTouched();
+    if (this.loginForm.controls['email'].value.length ==0) {
+      this.toastr.error('Login Failed',"Email is mandatory");
+      return;
+
+    }
     if (this.loginForm.controls['password'].value.length < 8) {
       this.toastr.error('Login Failed',"Password length is less than 8 character");
       return;
