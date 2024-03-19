@@ -18,7 +18,7 @@
       <td>{{ issue.issueStatus }}</td>
       <td>
         <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-danger" >Delete</button>
+        <button type="button" class="btn btn-danger" (click)="deleteIssue(5402, issue.issueId)">Delete</button>
         <button type="button" class="btn btn-success" >View Solution</button>
       </td>
     </tr>

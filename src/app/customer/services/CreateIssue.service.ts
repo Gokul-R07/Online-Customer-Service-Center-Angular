@@ -11,6 +11,8 @@ export class CreateIssueService {
     addIssueToCustomer(customerId: number | undefined, issueDetails: any): Observable<any> {
       return this.httpClient.post(`http://localhost:8080/issue/${customerId}`, issueDetails);
     }
+
+    
     
   
   }

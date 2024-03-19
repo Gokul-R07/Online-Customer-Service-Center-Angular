@@ -8,7 +8,7 @@ export class DeleteIssueService {
 
   constructor(private httpClient:HttpClient) { }
 
-  deleteIssue(customerId: number, issueId: number|undefined) {
+  deleteIssue(customerId: number, issueId: number|undefined){
     return this.httpClient.delete(`http://localhost:8080/issue/delete/${customerId}/${issueId}`);
   }
 }
