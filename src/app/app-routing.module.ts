@@ -7,10 +7,12 @@ import { CustomerComponent } from './customer/components/customer/customer.compo
 import { HomepageComponent } from './homepage/homepage.component';
 import { OperatorModuleComponent } from './operator/components/operator-module/operator-module.component';
 import { UpdateIssueComponent } from './customer/components/update-issue/update-issue.component';
+import { SolutionModuleComponent } from './solution-module/solution-module.component';
 const routes: Routes = [
   {path:'display-issues',component:DisplayIssuesComponent},
   {path:'upate-issue', component:UpdateIssueComponent},
   {path:"home",component:HomepageComponent},
+  {path:'solution',component:SolutionModuleComponent},
   {
     path: '',
     redirectTo: '/home',

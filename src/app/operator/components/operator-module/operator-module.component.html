@@ -1,45 +1,47 @@
-<div class="heading-container">
-    <div class="heading">
-        <h2>Operator Service</h2>
+<div class="grid col-12 w-full p-2 m-3">
+    <div class="col-11 grid">
+        <h3>Operator Service</h3>
     </div>
-</div>
 
-<div class="operator-label">
-    <label for="operator-name" >Welcome : {{operator}}, Task Allocated !</label>
-</div>
-
-<div class="grid w-full justify-content-center align-item-center">
-    <div class="col-6 grid">
-        <label class="Allocated-issue" >Allocated Issue</label>
+    <div class="col-1 align-items-center">
+        <p-button icon="pi pi-user" [rounded]="true" severity="info" [outlined]="true" class="icon" (onClick)="logout()"></p-button>
     </div>
 
 </div>
 
-<div class="grid w-full justify-content-center align-items-center" id="main">
-    <div class="col-8 grid">
+
+
+
+
+
+<div class="grid w-full justify-content-center align-items-center m-2" id="main">
+    <div class="col-10 grid">
         <div class="col-12">
-            <table>
-                <tr>
-                  <th>Issue</th>
-                  <th>Issue Status</th>
-                </tr>
-                <!-- <tr *ngFor="let item of data">
-                    <td>{{ item.issue }}</td>
-                    <td [ngClass]="{ 'completed': item.status === 'Completed', 'pending': item.status === 'Pending' }">{{ item.status }}</td>
-                 </tr> -->
-                  <tr>
-                    <td>Hardware component breakage</td>
-                    <td class="completed">Completed</td>
-                  </tr>
-                  <tr>
-                    <td>Software - malware suspicions</td>
-                    <td class="pending">Pending</td>
-                  </tr>
-              </table>
-              <div class="button-container">
-                <p-button label="Get Pending" [loading]="loading" (onClick)="load()" id="#Button"></p-button>
-                
-            </div>
+            <p-table [columns]="cols" [value]="data" [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns">
+                            {{ col.header }}
+                        </th>
+                        <th class="justify-content-center align-items-center">
+                            Add Solution
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr>
+                        <td *ngFor="let col of columns">
+                            {{ rowData[col.field] }}
+
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" (click)="navToSolution(rowData.issueDescription)">+</button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+            
         </div>
     </div>
 </div>
+

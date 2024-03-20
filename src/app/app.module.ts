@@ -33,6 +33,8 @@ import { HeaderComponent as CustomerHeader } from './customer/components/custome
 
 import { OperatorModuleComponent } from './operator/components/operator-module/operator-module.component';
 import { TableModule } from 'primeng/table';
+import { SolutionModuleComponent } from './solution-module/solution-module.component';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { TableModule } from 'primeng/table';
     NavbarComponent,
     CustomerFooter,
     CustomerHeader,
+    SolutionModuleComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +75,7 @@ import { TableModule } from 'primeng/table';
     PasswordModule,
     InputTextModule,
     NgToastModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
