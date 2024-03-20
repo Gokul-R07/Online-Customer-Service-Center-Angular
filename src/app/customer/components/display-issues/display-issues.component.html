@@ -1,2 +1,36 @@
-<p>display-issues works!</p>
-<button name="issue" (click)="getAllIssues()"> GetAllIssues</button>
+<h3>Display All Issues: </h3>
+    <div *ngIf="message" class="alert alert-success">
+        <p> {{message}}</p>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        <p> {{errorMessage}}</p>
+    </div>
+    
+    <h3 *ngIf="issues.length <1"> No accounts Found.</h3>
+
+<table  *ngIf="issues.length>0" class="table  table-striped custom-table">
+  <thead>
+    <tr>
+      <th>Issue No</th>
+      <th>Issue Type</th>
+      <th>Description</th>
+      <th>Created On</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let issue of issues; let i=index">
+      <td>{{i+1}}</td>
+      <td>{{ issue.issueType }}</td>
+      <td>{{ issue.issueDescription }}</td>
+      <td>{{ issue.issueCreationDate | date }}</td>
+      <td>{{ issue.issueStatus }}</td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="navigateToUpdate(5402, issue.issueId||0)">Edit</button>
+        <button type="button" class="btn btn-danger" (click)="deleteIssue(5402, issue.issueId)">Delete</button>
+        <button type="button" class="btn btn-success" >View Solution</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

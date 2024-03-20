@@ -1,9 +1,10 @@
 
 <div class="container mt-5">
-    <form name="issue" (submit)="addIssueToCustomer()">
+    <form name="issue" (submit)="addIssueToCustomer()" >
         <div class="form-group">
             <label for="issueType" class="form-label"><b>Enter the type of issue:</b></label>
-            <select class="form-control" size="3" name="issueType" id="issueType" required [(ngModel)]="issue.issueType" >
+            <select #issueType = ngModel class="form-control" size="3" name="issueType" id="issueType" [(ngModel)]="issue.issueType"  required >
+                
                 <option value="Engine problems">Engine problems</option>
                 <option value="Transmission issues">Transmission issues</option>
                 <option value="Electrical system malfunctions">Electrical system malfunctions</option>
@@ -16,10 +17,13 @@
                 <option value="Tire-related issues">Tire-related issues</option>
             </select>
         </div>
+        
         <div class="form-group">
             <label for="issueDescription" class="form-label"><b>Enter the description of issue: </b></label>
-            <textarea class="form-control" rows="5" id="issueDescription" name="issueDescription" required [(ngModel)]="issue.issueDescription"></textarea>
+            <textarea class="form-control" rows="5" id="issueDescription" name="issueDescription" [(ngModel)]="issue.issueDescription" #issueDescription="ngModel" minlength="10" maxlength="50" required></textarea>
+            
         </div>
+        
         <button type="submit" class="btn btn-primary"><b>Save</b></button>
-    </form>
+        </form>
 </div>

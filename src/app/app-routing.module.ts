@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateIssueComponent } from './customer/components/create-issue/create-issue.component';
-import { DisplayIssuesComponent } from './customer/components/display-issues/display-issues.component';
-import { GetIssuesByCustomerIdComponent } from './customer/components/get-issues-by-customer-id/get-issues-by-customer-id.component';
-import { UpdateIssueComponent } from './customer/components/update-issue/update-issue.component';
+import { EditIssueComponent } from './customer/components/edit-issue/edit-issue.component';
+import { DisplayIssueComponent } from './customer/components/display-issues/display-issues.component';
 const routes: Routes = [
   {path:'create-issue',component:CreateIssueComponent},
-  {path:'display-issues',component:DisplayIssuesComponent},
-  {path:'get-issues-by-customer-id',component:GetIssuesByCustomerIdComponent},
-  {path:'upate-issue', component:UpdateIssueComponent}
+  {path:'edit-issue', component:EditIssueComponent},
+  {path:'display-issues', component:DisplayIssueComponent}
 
 
 ];
