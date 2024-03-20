@@ -1,0 +1,19 @@
+
+  
+  <div class="d-flex justify-content-center">
+    <div class="card shadow-sm" style="width: 18rem;">
+      <img class="card-img-top" src="../../../../assets/customer.jpg" alt="Card image cap">
+      <div class="card-body">
+          <h5 class="card-title">Customer Profile</h5>
+      </div>
+      <div *ngIf="customer">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Name: {{ customer.firstName + " " + customer.lastName }}</li>
+            <li class="list-group-item">Email: {{ customer.email }}</li>
+            <li class="list-group-item">City: {{ customer.city }}</li>
+            <li class="list-group-item">Phone Number: {{ customer.phoneNumber }}</li>
+        </ul>  
+      </div> 
+    </div>
+  </div>
+  

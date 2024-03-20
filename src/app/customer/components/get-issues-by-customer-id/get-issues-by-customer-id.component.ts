@@ -37,8 +37,7 @@ export class GetIssuesByCustomerIdComponent implements OnInit {
  
   
 
-  getIssuesByCustomerId() {
-  }
+
 
 
  ngOnInit(): void {

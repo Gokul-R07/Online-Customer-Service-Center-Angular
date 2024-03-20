@@ -30,9 +30,10 @@ import { UpdateIssueComponent } from './customer/components/update-issue/update-
 import { NavbarComponent } from './customer/components/navbar/navbar.component';
 import { FooterComponent  as CustomerFooter} from './customer/components/customer-footer/customer-footer.component';
 import { HeaderComponent as CustomerHeader } from './customer/components/customer-header/customer-header.component';
-
 import { OperatorModuleComponent } from './operator/components/operator-module/operator-module.component';
 import { TableModule } from 'primeng/table';
+import { ViewCustomerComponent } from './customer/components/view-customer/view-customer.component';
+
 
 @NgModule({
   declarations: [
@@ -52,6 +53,8 @@ import { TableModule } from 'primeng/table';
     NavbarComponent,
     CustomerFooter,
     CustomerHeader,
+    ViewCustomerComponent
+   
   ],
   imports: [
     BrowserModule,

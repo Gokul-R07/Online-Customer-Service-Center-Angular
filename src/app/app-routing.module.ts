@@ -7,10 +7,12 @@ import { CustomerComponent } from './customer/components/customer/customer.compo
 import { HomepageComponent } from './homepage/homepage.component';
 import { OperatorModuleComponent } from './operator/components/operator-module/operator-module.component';
 import { UpdateIssueComponent } from './customer/components/update-issue/update-issue.component';
+import { ViewCustomerComponent } from './customer/components/view-customer/view-customer.component';
 const routes: Routes = [
   {path:'display-issues',component:DisplayIssuesComponent},
   {path:'upate-issue', component:UpdateIssueComponent},
   {path:"home",component:HomepageComponent},
+ 
   {
     path: '',
     redirectTo: '/home',
@@ -24,8 +26,11 @@ const routes: Routes = [
   path: 'customer',
   component: CustomerComponent,
   children: [
-    { path: 'create-issue', component: CreateIssueComponent },
-    { path: 'get-all-issues', component:GetIssuesByCustomerIdComponent }
+   
+    { path: 'get-all-issues', component:GetIssuesByCustomerIdComponent },
+    {path: 'view-customer', component:ViewCustomerComponent},
+    { path: 'create-issue', component: CreateIssueComponent }
+    
   ]
 }
 

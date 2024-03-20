@@ -19,5 +19,16 @@
     text-decoration: none;
   }
   
+  .dropdown-menu {
+    background-color: #110965;
+  }
+  
+  .dropdown-menu .dropdown-item {
+    color: white;
+  }
+  
 
 
+  .dropdown-menu .dropdown-item:hover {
+    background-color: #3B82F6;
+  }
