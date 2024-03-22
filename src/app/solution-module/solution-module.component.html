@@ -1,6 +1,12 @@
 <div class="grid w-full p-2 m-3">
     <div class="col-4 grid">
-        <h3>Solution Service</h3>
+        <p-button label="Back" (onClick)="goBack()"></p-button>
+    </div>
+</div>
+
+<div class="grid col-12 w-full justify-content-center align-items-center">
+    <div class="grid col-6" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: large; font-weight: bold;">
+        <label>Issue Description</label>
     </div>
 </div>
 
@@ -22,6 +28,18 @@
             <textarea rows="5" class="col-12 w-full" [(ngModel)]="solutionText"></textarea>
         </div>
         
+    </div>
+
+    <div class="grid col-12 w-full justify-content-center align-items-center">
+        <div class="col-6 grid " style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: large;font-weight: bold;">
+            <label>Previous Solution</label>
+        </div>
+    </div>
+
+    <div class="grid col-12 justify-content-center align-items-center">
+        <div class="col-6 grid">
+            {{previousSolution}}
+        </div>
     </div>
     <div class="grid col-12 justify-content-center align-items-center ">
        

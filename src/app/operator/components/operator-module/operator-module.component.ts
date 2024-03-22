@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { DataService } from 'src/app/data.service';
+import { DataService } from 'src/app/operator/components/operator-module/service/data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { SolutionModuleComponent } from 'src/app/solution-module/solution-module.component';
@@ -21,9 +21,16 @@ export class OperatorModuleComponent implements OnInit {
   data!:[];
   operator!:any;
   operatorDetails: any;
+  operatorId:string = '1';
   response: any;
   cols!:Column[];
-  constructor(private dataService: DataService,private route: ActivatedRoute,private router: Router) { }
+  constructor(private dataService: DataService,private route: ActivatedRoute,private router: Router, private http:HttpClient) { 
+    const navigation = this.router.getCurrentNavigation();
+if (navigation?.extras.state) {
+this.operatorDetails = navigation.extras.state['activeOperatorDetails'];
+console.log('Operator Details:', this.operatorDetails);
+}
+  }
 
   loading: boolean = false;
 
@@ -32,15 +39,6 @@ export class OperatorModuleComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  load() {
-      this.loading = true;
-
-      setTimeout(() => {
-          this.loading = false
-      }, 2000);
-
-      
-  }
 
   navToSolution(issueDescription:string,){
     this.router.navigate(['/solution',{description:issueDescription}]);
@@ -48,19 +46,29 @@ export class OperatorModuleComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.dataService.getData().subscribe((response: any) => {
-      this.data = response;
-      console.log(response);
-    });
-       
-    const navigation = this.router.getCurrentNavigation();
-    if (navigation?.extras.state) {
 
-      this.operatorDetails = navigation.extras.state['activeOperatorDetails'];
-      console.log('Operator Details:', this.operatorDetails);
-      this.operator = this.operatorDetails;
 
-    }
+// this.http.get('http://localhost:8080/allocated-issue-by-id/'+ this.operatorId).subscribe(
+//   (response: any)=>{
+//     this.data = response;
+//     console.log(response);
+//   },
+//   (error)=>{
+//     console.log('Error fetching allocated issue',error);
+//   }
+// )
+
+this.http.get('http://localhost:8080/Allocated-issue').subscribe(
+  (response:any)=>{
+    this.data = response;
+    console.log(response);
+  },
+  (error)=>{
+    console.error('Allocated issue error'+error);
+  }
+)
+
+
   
   this.cols=[
 
@@ -71,9 +79,13 @@ export class OperatorModuleComponent implements OnInit {
     {field: "ticketClose",header: "Ticket Close"},
     {field: "issueStatus",header: "issueStatus"},
     {field:  "issueDescription",header:  "Issue Description"},
-    // {field:"Actions",header:"Actions"},
+    
     
   ];
 }
 
 }
+  
+
+
+

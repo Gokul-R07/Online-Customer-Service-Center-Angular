@@ -3,15 +3,12 @@
         <h3>Operator Service</h3>
     </div>
 
+    
     <div class="col-1 align-items-center">
         <p-button icon="pi pi-user" [rounded]="true" severity="info" [outlined]="true" class="icon" (onClick)="logout()"></p-button>
     </div>
 
 </div>
-
-
-
-
 
 
 <div class="grid w-full justify-content-center align-items-center m-2" id="main">
@@ -34,8 +31,12 @@
                             {{ rowData[col.field] }}
 
                         </td>
+                        
                         <td>
-                            <button class="btn btn-primary" (click)="navToSolution(rowData.issueDescription)">+</button>
+                            <div class="grid col-12 justify-content-center align-items-center">
+                                <button class="btn btn-primary " (click)="navToSolution(rowData.issueDescription)">+</button>
+                            </div>
+                           
                         </td>
                     </tr>
                 </ng-template>
