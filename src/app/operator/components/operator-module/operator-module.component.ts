@@ -48,6 +48,9 @@ console.log('Operator Details:', this.operatorDetails);
     
 
 
+// get all allocated issue by  id
+
+
 // this.http.get('http://localhost:8080/allocated-issue-by-id/'+ this.operatorId).subscribe(
 //   (response: any)=>{
 //     this.data = response;
@@ -57,6 +60,10 @@ console.log('Operator Details:', this.operatorDetails);
 //     console.log('Error fetching allocated issue',error);
 //   }
 // )
+
+
+
+// get all allocated issue 
 
 this.http.get('http://localhost:8080/Allocated-issue').subscribe(
   (response:any)=>{
