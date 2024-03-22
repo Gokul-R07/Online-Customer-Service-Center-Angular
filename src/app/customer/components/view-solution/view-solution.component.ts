@@ -3,18 +3,18 @@ import { IssueService } from '../../services/issue.service';
 import { Issue } from '../../model/issue';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-
 import { SharedDataService } from '../../services/shared-data.service'
 import { NgToastService} from 'ng-angular-popup';
 
-@Component({
-  selector: 'app-edit-issue',
-  templateUrl: './edit-issue.component.html',
-  styleUrls: ['./edit-issue.component.css']
-})
-export class EditIssueComponent {
 
-  
+@Component({
+  selector: 'app-view-solution',
+  templateUrl: './view-solution.component.html',
+  styleUrls: ['./view-solution.component.css']
+})
+export class ViewSolutionComponent {
+
+
   customerId: number;
   issueId: number;
   issueDescription: string="";
@@ -50,23 +50,37 @@ export class EditIssueComponent {
       }
     );
   }
-  
 
-  updateIssueDescription() {
-    this.issueService.updateIssueDescription(1,this.issueId, this.issueDescription).subscribe(
-      (updatedIssue) => {
-        this.toast.success({detail:"Success Message", summary:"Issue Description updated", duration:5000});
-        console.log('Issue description updated successfully:', updatedIssue);
-        this.router.navigate(['display-issues']);
-        // Handle success response, update UI or perform any further actions
+
+
+  acceptSolution(): void {
+    this.issueService.acceptIssueSolution(this.issue.issueId, this.issue.solutions[0].solutionId).subscribe(
+      response => {
+        console.log('Solution accepted:', response);
+        this.toast.success({detail:"Success Message", summary:"Solution Accepted", duration:5000});
+        // Add any additional logic here after accepting the solution
       },
-      (error) => {
-        this.toast.error({detail:"Error Message", summary:"Issue Description updation is failed, try again later...", duration:5000});
-        console.error('Error updating issue description:', error);
-        // Handle error response
+      error => {
+        console.error('Error accepting solution:', error);
+        this.toast.error({detail:"Error Message", summary:"Solution Accept Failed, try again later...", duration:5000});
       }
     );
   }
 
-  
+  rejectSolution() {
+    this.issueService.rejectIssueSolution(this.issue.issueId, this.issue.solutions[0].solutionId).subscribe(
+      response => {
+        console.log('Solution rejected:', response);
+        this.toast.success({detail:"Success Message", summary:"Solution Rejected", duration:5000});
+        // Add any additional logic here after rejecting the solution
+      },
+      error => {
+        console.error('Error rejecting solution:', error);
+        this.toast.error({detail:"Error Message", summary:"Solution Reject is failed, try again later...", duration:5000});
+      }
+    );
+  }
+
+
+
 }

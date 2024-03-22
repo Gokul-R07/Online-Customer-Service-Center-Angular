@@ -1,0 +1,33 @@
+<p>view-solution works!</p>
+<div class="container mt-4">
+    <div class="card bg-light text-dark">
+      <div class="card-header bg-info text-white">
+        <h5 class="card-title">Issue Details</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><strong>Issue Type:</strong> {{ issue.issueType }}</p>
+        <p class="card-text"><strong>Creation Date:</strong> {{ issue.issueCreationDate | date }}</p>
+        <p class="card-text"><strong>Updation Date:</strong> {{ issue.issueUpdationdate | date }}</p>
+        <p class="card-text"><strong>Ticket Closed:</strong> {{ issue.ticketclose ? 'Yes' : 'No' }}</p>
+        <p class="card-text"><strong>Issue Status:</strong> {{ issue.issueStatus }}</p>
+        <p class="card-text"><strong>Description:</strong> {{ issue.issueDescription }}</p>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="container mt-4">
+    <div class="card bg-light text-dark">
+      <div class="card-header bg-info text-white">
+        <h5 class="card-title">Solution Details</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><strong>Description:</strong> {{ issue.solutions[0].solutionDescription }}</p>
+        <button class="btn btn-success" (click)="acceptSolution()">Accept</button>
+        <button class="btn btn-danger" (click)="rejectSolution()">Reject</button>
+      </div>
+    </div>
+  </div>
+
+  
+  

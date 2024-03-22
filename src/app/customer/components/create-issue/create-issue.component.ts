@@ -24,7 +24,7 @@ export class CreateIssueComponent
   
   constructor(private issueService: IssueService,private router:Router,private toast:NgToastService) { }
   addIssueToCustomer(){
-    this.issueService. addIssueToCustomer(5402,this.issue).subscribe(
+    this.issueService. addIssueToCustomer(1,this.issue).subscribe(
       {
         next: (data) => {
           this.toast.success({detail:"Success Message", summary:"Issue creation is success", duration:5000});

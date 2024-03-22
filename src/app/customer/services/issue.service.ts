@@ -26,12 +26,23 @@ export class IssueService {
   }
 
   getAllIssues():Observable<any>{
-    return this.httpClient.get('http://localhost:8080/issues');
+    return this.httpClient.get(`http://localhost:8080/issues`);
   }
 
   getIssueByIssueId(issueId:number):Observable<any>
   {
-    return this.httpClient.get(`http://8080/issue/${issueId}`)
+    console.log("inside get issue service."+issueId);
+    let url = `http://localhost:8080/issue/${issueId}`;
+    console.log(url);
+    return this.httpClient.get(url,{responseType:'json'});
+  }
+
+  acceptIssueSolution(issueId:number, solutionId:number):Observable<any>{
+    return this.httpClient.post(`http://localhost:8080/solution/accept/${issueId}`,  solutionId, {responseType:'text'});
+  }
+
+  rejectIssueSolution(issueId:number, solutionId:number):Observable<any>{
+    return this.httpClient.post(`http://localhost:8080/solution/reject/${issueId}`,  solutionId, {responseType:'text'});
   }
 
 

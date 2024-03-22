@@ -13,6 +13,7 @@ import { NavbarComponent } from './customer/components/navbar/navbar.component';
 import { FooterComponent } from './customer/components/footer/footer.component';
 import { HeaderComponent } from './customer/components/header/header.component';
 import { EditIssueComponent } from './customer/components/edit-issue/edit-issue.component';
+import { ViewSolutionComponent } from './customer/components/view-solution/view-solution.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { EditIssueComponent } from './customer/components/edit-issue/edit-issue.
     NavbarComponent,
     FooterComponent,
     HeaderComponent,
-    EditIssueComponent
+    EditIssueComponent,
+    ViewSolutionComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,6 @@ import { EditIssueComponent } from './customer/components/edit-issue/edit-issue.
     HttpClientModule,
     BrowserAnimationsModule,
     NgToastModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

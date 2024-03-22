@@ -21,7 +21,7 @@ export class DisplayIssueComponent
 
   constructor(private issueService: IssueService,private router:Router, private sharedDataService:SharedDataService)
    {
-    this.issueService.getIssuesByCustomerId(5402).subscribe(
+    this.issueService.getIssuesByCustomerId(1).subscribe(
       {
         next: (data) => {
           console.log(data);
@@ -47,7 +47,7 @@ export class DisplayIssueComponent
 
     if (confirm("Do you want to Delete Issue id:" + issueId))
 
-    this.issueService.deleteIssue(5402,issueId).subscribe(
+    this.issueService.deleteIssue(1,issueId).subscribe(
       {
         next: (resp) => {
           console.log(resp);
@@ -71,6 +71,12 @@ export class DisplayIssueComponent
     this.sharedDataService.setCustomerId(customerId);
     this.sharedDataService.setIssueId(issueId);
     this.router.navigate(['edit-issue']);
+  }
+
+  public navigateToSolution(customerId:number,issueId:number){
+    this.sharedDataService.setCustomerId(customerId);
+    this.sharedDataService.setIssueId(issueId);
+    this.router.navigate(['view-solution']);
   }
   
 }
