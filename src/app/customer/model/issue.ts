@@ -1,12 +1,15 @@
+import { getLocaleDateFormat, getLocaleDateTimeFormat } from "@angular/common";
+import { IssueStatus } from "./issueStatus.enum";
+import { Solution } from "./solution";
+
 export class Issue{
-    public issueType: string="";
-    public issueCreationDate:Date=new Date("2024-03-19");
-    public issueUpdationdate:Date=new Date("2024-03-19");
+    public issueType!: String;
+    public issueCreationDate:Date = new Date();
+    public issueUpdationdate!:Date;
     public ticketclose:boolean=false;
-    public issueStatus:string="pending";
-    public issueDescription:string="";
-    public issueId?:number | undefined;
-    constructor(){
-        
-    } 
+    public issueStatus:IssueStatus=IssueStatus.PENDING;
+    public issueDescription!:String;
+    public issueId!:number;
+    public solutions:Solution[]=[];
+    
 }

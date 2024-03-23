@@ -20,16 +20,14 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthenticationComponent } from './authentication/components/authentication.component';
 import { CreateIssueComponent } from './customer/components/create-issue/create-issue.component';
-import { GetIssuesByCustomerIdComponent } from './customer/components/get-issues-by-customer-id/get-issues-by-customer-id.component';
-import { DisplayIssuesComponent } from './customer/components/display-issues/display-issues.component';
 import { CustomerComponent } from './customer/components/customer/customer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { IssueCardComponent } from './customer/components/issue-card/issue-card.component';
-import { DeleteIssueComponent } from './customer/components/delete-issue/delete-issue.component';
-import { UpdateIssueComponent } from './customer/components/update-issue/update-issue.component';
 import { NavbarComponent } from './customer/components/navbar/navbar.component';
 import { FooterComponent  as CustomerFooter} from './customer/components/customer-footer/customer-footer.component';
 import { HeaderComponent as CustomerHeader } from './customer/components/customer-header/customer-header.component';
+import { EditIssueComponent } from './customer/components/edit-issue/edit-issue.component';
+import { ViewSolutionComponent } from './customer/components/view-solution/view-solution.component';
 
 import { OperatorModuleComponent } from './operator/components/operator-module/operator-module.component';
 import { TableModule } from 'primeng/table';
@@ -42,16 +40,14 @@ import { TableModule } from 'primeng/table';
     FooterComponent,
     AuthenticationComponent,
     CreateIssueComponent,
-    GetIssuesByCustomerIdComponent,
-    DisplayIssuesComponent,
     CustomerComponent,
     HomepageComponent,
     IssueCardComponent,
-    DeleteIssueComponent,
-    UpdateIssueComponent,
     NavbarComponent,
     CustomerFooter,
     CustomerHeader,
+    EditIssueComponent,
+    ViewSolutionComponent
   ],
   imports: [
     BrowserModule,

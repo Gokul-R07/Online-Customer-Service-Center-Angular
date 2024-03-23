@@ -1,0 +1,27 @@
+.custom-table {
+    width: 100%;
+    border: 1px solid #dee2e6; 
+    margin: 10px;
+    padding: 20px;
+    /* Custom border color for the table */
+  }
+  
+  
+  
+  .custom-table th {
+    background-color: #f8f9fa; /* Custom background color for table header */
+  }
+  
+  .custom-table td, .custom-table th {
+    border: 1px solid #dee2e6; /* Custom border color for table cells */
+    padding: 8px; /* Add padding inside table cells */
+  }
+  
+  .custom-table tbody tr:hover {
+    background-color: #f9f9f9; /* Custom background color on hover */
+  }
+  
+  .custom-table button {
+    margin-right: 5px; /* Add right margin between buttons */
+  }
+  

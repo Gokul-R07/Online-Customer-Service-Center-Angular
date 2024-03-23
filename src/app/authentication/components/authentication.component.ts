@@ -90,7 +90,7 @@ export class AuthenticationComponent implements OnInit  {
           next: (response: Customer) => {
             console.log('String response from backend:', response);
             this.toastr.success('Login Sucess');
-            this.router.navigate(['/customer'],{ state: { activeCustomerDetails: response }});
+            this.router.navigate(['/customer'],{ state: { activeCustomerId: response.customerId }});
             
           },
           error: (error) => {

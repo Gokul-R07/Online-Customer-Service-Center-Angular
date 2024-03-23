@@ -13,7 +13,13 @@ export class OperatorModuleComponent implements OnInit {
   data: any;
   operator="yashwanth";
   operatorDetails: any;
-  constructor(private dataService: DataService,private router: Router) { }
+  constructor(private dataService: DataService,private router: Router) { 
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation?.extras.state) {
+      this.operatorDetails = navigation.extras.state['activeOperatorDetails'];
+      console.log('Operator Details:', this.operatorDetails);
+    }
+  }
 
   loading: boolean = false;
 
@@ -44,10 +50,6 @@ export class OperatorModuleComponent implements OnInit {
         "virus check":"pending",
       }
     ]
-    const navigation = this.router.getCurrentNavigation();
-    if (navigation?.extras.state) {
-      this.operatorDetails = navigation.extras.state['activeOperatorDetails'];
-      console.log('Operator Details:', this.operatorDetails);
-    }
+   
   }
 }

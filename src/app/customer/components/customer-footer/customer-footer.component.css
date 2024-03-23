@@ -5,7 +5,8 @@
   text-align: center;
   
   /* Set the footer to stick to the bottom */
-  position: fixed;
+  position:fixed;
+  
   left: 0;
   bottom: 0;
   width: 100%;

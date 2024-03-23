@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateIssueComponent } from './customer/components/create-issue/create-issue.component';
-import { DisplayIssuesComponent } from './customer/components/display-issues/display-issues.component';
-import { GetIssuesByCustomerIdComponent } from './customer/components/get-issues-by-customer-id/get-issues-by-customer-id.component';
+import { EditIssueComponent } from './customer/components/edit-issue/edit-issue.component';
+import { DisplayIssueComponent } from './customer/components/display-issues/display-issues.component';
 import { CustomerComponent } from './customer/components/customer/customer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { OperatorModuleComponent } from './operator/components/operator-module/operator-module.component';
-import { UpdateIssueComponent } from './customer/components/update-issue/update-issue.component';
+import { ViewSolutionComponent } from './customer/components/view-solution/view-solution.component';
+// import { UpdateIssueComponent } from './customer/components/update-issue/update-issue.component';
 const routes: Routes = [
-  {path:'display-issues',component:DisplayIssuesComponent},
-  {path:'upate-issue', component:UpdateIssueComponent},
+  {path:'display-issues',component:DisplayIssueComponent},
+  // {path:'upate-issue', component:UpdateIssueComponent},
   {path:"home",component:HomepageComponent},
   {
     path: '',
@@ -25,7 +26,9 @@ const routes: Routes = [
   component: CustomerComponent,
   children: [
     { path: 'create-issue', component: CreateIssueComponent },
-    { path: 'get-all-issues', component:GetIssuesByCustomerIdComponent }
+    {path:'edit-issue', component:EditIssueComponent},
+    {path:'view-solution', component:ViewSolutionComponent},
+    {path:'display-issues',component:DisplayIssueComponent},
   ]
 }
 
