@@ -38,11 +38,11 @@ export class IssueService {
   }
 
   acceptIssueSolution(issueId:number, solutionId:number):Observable<any>{
-    return this.httpClient.post(`http://localhost:8080/solution/accept/${issueId}`,  solutionId, {responseType:'text'});
+    return this.httpClient.post(`http://localhost:8080/customer/solution/accept/${issueId}`,  solutionId, {responseType:'text'});
   }
 
   rejectIssueSolution(issueId:number, solutionId:number):Observable<any>{
-    return this.httpClient.post(`http://localhost:8080/solution/reject/${issueId}`,  solutionId, {responseType:'text'});
+    return this.httpClient.post(`http://localhost:8080/customer/solution/reject/${issueId}`,  solutionId, {responseType:'text'});
   }
 
 
