@@ -134,11 +134,11 @@ export class AuthenticationComponent implements OnInit  {
       return;
     } 
     else if (this.registerForm.controls['lastName'].value.length ==0) {
-      this.toastr.error('Regsiter Failed',"Last name is mandatory");
+      this.toastr.error('Register Failed',"Last name is mandatory");
       return;
     }
     else if (this.registerForm.controls['email'].value.length ==0) {
-      this.toastr.error('Regsiter Failed',"Email is mandatory");
+      this.toastr.error('Register Failed',"Email is mandatory");
       return;
     }
 
@@ -147,15 +147,15 @@ export class AuthenticationComponent implements OnInit  {
       return;
     }
     else if (this.registerForm.controls['phoneNumber'].value.length ==0) {
-      this.toastr.error('Regsiter Failed',"Phone Number is mandatory");
+      this.toastr.error('Register Failed',"Phone Number is mandatory");
       return;
     }
     else if (this.registerForm.controls['phoneNumber'].value.length !=10) {
-      this.toastr.error('Regsiter Failed',"Phone Number should be 10 digit");
+      this.toastr.error('Register Failed',"Phone Number should be 10 digit");
       return;
     }
     else if (this.registerForm.controls['city'].value.length ==0) {
-      this.toastr.error('Regsiter Failed',"City is mandatory");
+      this.toastr.error('Register Failed',"City is mandatory");
       return;
     }
     const userTypeValue = this.registerForm.get('userType')?.value;

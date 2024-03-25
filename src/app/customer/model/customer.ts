@@ -2,8 +2,8 @@
 import { Issue } from "./issue";
 
 export class Customer{
-    public firstName?: string;
-    public lastName?:string;
+    public firstName: string="";
+    public lastName:string="";
     public email:string="";
     public password:string="";
     public city:string="";

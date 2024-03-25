@@ -33,6 +33,7 @@ import { HeaderComponent as CustomerHeader } from './customer/components/custome
 import { OperatorModuleComponent } from './operator/components/operator-module/operator-module.component';
 import { TableModule } from 'primeng/table';
 import { ViewCustomerComponent } from './customer/components/view-customer/view-customer.component';
+import { UpdateCustomerComponent } from './customer/components/update-customer/update-customer.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { ViewCustomerComponent } from './customer/components/view-customer/view-
     NavbarComponent,
     CustomerFooter,
     CustomerHeader,
-    ViewCustomerComponent
+    ViewCustomerComponent,
+    UpdateCustomerComponent
    
   ],
   imports: [

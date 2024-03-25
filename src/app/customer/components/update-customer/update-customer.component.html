@@ -1,0 +1,30 @@
+
+
+<form [formGroup]="updateForm" (ngSubmit)="updateCustomerProfile()">
+    <div class="col-12">
+      <span class="p-input-icon-left">
+        <input type="text" pInputText formControlName="firstName" placeholder="ENTER FIRST NAME" [style]="{'width': '100%'}" class="px-6 py-2.5" />
+      </span>
+      <span class="p-input-icon-left">
+        <input type="text" pInputText formControlName="lastName" placeholder="ENTER LAST NAME" [style]="{'width': '100%'}" class="px-6 py-2.5" />
+      </span>
+    </div>
+  
+    <div class="col-12">
+      <span class="p-input-icon-left">
+        <input type="text" pInputText formControlName="email" placeholder="ENTER EMAIL ID" [style]="{'width': '100%'}" class="px-6 py-2.5" />
+      </span>
+    </div>
+  
+    <div class="col-12">
+      <span class="p-input-icon-left">
+        <input type="text" pInputText formControlName="phoneNumber" placeholder="ENTER PHONE NUMBER" class="px-6 py-2.5" />
+      </span>
+      <span class="p-input-icon-left">
+        <input type="text" pInputText formControlName="city" placeholder="ENTER CITY" class="px-6 py-2.5" />
+      </span>
+    </div>
+  
+    <button type="submit" class="btn btn-primary"><b>Update</b></button>
+  </form>
+  
