@@ -12,7 +12,10 @@
   
     <div class="col-12">
       <span class="p-input-icon-left">
-        <input type="text" pInputText formControlName="email" placeholder="ENTER EMAIL ID" [style]="{'width': '100%'}" class="px-6 py-2.5" />
+        <input type="text" pInputText formControlName="email" value={{customer.email}} [style]="{'width': '100%'}" class="px-6 py-2.5" placeholder="ENTER EMAIL"/>
+       </span>
+       <span class="p-input-icon-left">
+        <input type="password" pInputText formControlName="password" placeholder="ENTER EMAIL PASSWORD" [style]="{'width': '100%'}" class="px-6 py-2.5" />
       </span>
     </div>
   
