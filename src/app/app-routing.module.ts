@@ -8,10 +8,12 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { OperatorModuleComponent } from './operator/components/operator-module/operator-module.component';
 import { ViewSolutionComponent } from './customer/components/view-solution/view-solution.component';
 // import { UpdateIssueComponent } from './customer/components/update-issue/update-issue.component';
+import { SolutionModuleComponent } from './solution-module/solution-module.component';
 const routes: Routes = [
   {path:'display-issues',component:DisplayIssueComponent},
   // {path:'upate-issue', component:UpdateIssueComponent},
   {path:"home",component:HomepageComponent},
+  {path:'solution',component:SolutionModuleComponent},
   {
     path: '',
     redirectTo: '/home',

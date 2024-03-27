@@ -31,6 +31,8 @@ import { ViewSolutionComponent } from './customer/components/view-solution/view-
 
 import { OperatorModuleComponent } from './operator/components/operator-module/operator-module.component';
 import { TableModule } from 'primeng/table';
+import { SolutionModuleComponent } from './solution-module/solution-module.component';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { TableModule } from 'primeng/table';
     CustomerFooter,
     CustomerHeader,
     EditIssueComponent,
-    ViewSolutionComponent
+    ViewSolutionComponent,
+    SolutionModuleComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +71,7 @@ import { TableModule } from 'primeng/table';
     PasswordModule,
     InputTextModule,
     NgToastModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
