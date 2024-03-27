@@ -16,6 +16,7 @@ export class AuthenticationComponent implements OnInit  {
   loginForm!:FormGroup;
   registerForm!:FormGroup
   authenticationType:String="login"
+
   options = [
     { label: 'Login', value: 'login' },
     { label: 'Register', value: 'register' }
@@ -90,7 +91,12 @@ export class AuthenticationComponent implements OnInit  {
           next: (response: Customer) => {
             console.log('String response from backend:', response);
             this.toastr.success('Login Sucess');
+<<<<<<< HEAD
             this.router.navigate(['/customer'],{ state: { activeCustomerId: response.customerId }});
+=======
+            sessionStorage.setItem('customerEmail', response.email);
+            this.router.navigate(['/customer'],{ state: { activeCustomerDetails: response }});
+>>>>>>> ec69067f3c8320e5fba4a1a60643bc81b2d32b90
             
           },
           error: (error) => {
@@ -104,6 +110,7 @@ export class AuthenticationComponent implements OnInit  {
           next: (response: Operator) => {
             console.log('String response from backend:', response);
             this.toastr.success('Login Sucess');
+            sessionStorage.setItem('operatorEmail', response.email);
             this.router.navigate(['/operator'],{ state: { activeOperatorDetails: response }});
           },
           error: (error) => {
@@ -117,6 +124,7 @@ export class AuthenticationComponent implements OnInit  {
           next: (response:Admin) => {
             console.log('String response from backend:', response);
             this.toastr.success('Login Sucess');
+            sessionStorage.setItem('adminEmail', response.email);
           },
           error: (error) => {
             console.error('Error:', error.error);
@@ -134,11 +142,11 @@ export class AuthenticationComponent implements OnInit  {
       return;
     } 
     else if (this.registerForm.controls['lastName'].value.length ==0) {
-      this.toastr.error('Regsiter Failed',"Last name is mandatory");
+      this.toastr.error('Register Failed',"Last name is mandatory");
       return;
     }
     else if (this.registerForm.controls['email'].value.length ==0) {
-      this.toastr.error('Regsiter Failed',"Email is mandatory");
+      this.toastr.error('Register Failed',"Email is mandatory");
       return;
     }
 
@@ -147,15 +155,15 @@ export class AuthenticationComponent implements OnInit  {
       return;
     }
     else if (this.registerForm.controls['phoneNumber'].value.length ==0) {
-      this.toastr.error('Regsiter Failed',"Phone Number is mandatory");
+      this.toastr.error('Register Failed',"Phone Number is mandatory");
       return;
     }
     else if (this.registerForm.controls['phoneNumber'].value.length !=10) {
-      this.toastr.error('Regsiter Failed',"Phone Number should be 10 digit");
+      this.toastr.error('Register Failed',"Phone Number should be 10 digit");
       return;
     }
     else if (this.registerForm.controls['city'].value.length ==0) {
-      this.toastr.error('Regsiter Failed',"City is mandatory");
+      this.toastr.error('Register Failed',"City is mandatory");
       return;
     }
     const userTypeValue = this.registerForm.get('userType')?.value;
@@ -166,6 +174,7 @@ export class AuthenticationComponent implements OnInit  {
           next: (response: Customer) => {
             console.log('String response from backend:', response);
             this.toastr.success('Register Sucess');
+           
             this.authenticationType="login"
             this.registerForm.reset();
 
@@ -184,7 +193,6 @@ export class AuthenticationComponent implements OnInit  {
             this.toastr.success('Register Sucess');
             this.authenticationType="login"
             this.registerForm.reset();
-
           },
           error: (error) => {
             console.error('Error:', error.error);

@@ -28,11 +28,13 @@ import { FooterComponent  as CustomerFooter} from './customer/components/custome
 import { HeaderComponent as CustomerHeader } from './customer/components/customer-header/customer-header.component';
 import { EditIssueComponent } from './customer/components/edit-issue/edit-issue.component';
 import { ViewSolutionComponent } from './customer/components/view-solution/view-solution.component';
-
 import { OperatorModuleComponent } from './operator/components/operator-module/operator-module.component';
 import { TableModule } from 'primeng/table';
 import { SolutionModuleComponent } from './solution-module/solution-module.component';
 import { ToastModule } from 'primeng/toast';
+import { ViewCustomerComponent } from './customer/components/view-customer/view-customer.component';
+import { UpdateCustomerComponent } from './customer/components/update-customer/update-customer.component';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +52,10 @@ import { ToastModule } from 'primeng/toast';
     CustomerHeader,
     EditIssueComponent,
     ViewSolutionComponent,
-    SolutionModuleComponent
+    SolutionModuleComponent,
+    ViewCustomerComponent,
+    UpdateCustomerComponent
+   
   ],
   imports: [
     BrowserModule,
