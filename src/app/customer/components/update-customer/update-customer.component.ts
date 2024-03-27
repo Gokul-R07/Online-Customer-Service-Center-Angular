@@ -3,9 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Customer } from '../../model/customer';
 import { UpdateCustomerService } from '../../services/update-customer.service';
 import { NgToastService } from 'ng-angular-popup';
-import { SharedDataService } from 'src/app/service/shared-data.service';
 import { CustomerService } from '../../services/customer.service';
-import { getCustomerByEmailService } from '../../services/view-Customer.service';
 @Component({
   selector: 'app-update-customer',
   templateUrl: './update-customer.component.html',
@@ -36,7 +34,7 @@ export class UpdateCustomerComponent implements OnInit {
     if (this.updateForm.valid) {
       this.customer = this.updateForm.value;
       console.log(this.customer);
-      this.updateCustomerService.updateCustomerService(this.customer).subscribe(
+      this.customerService.updateCustomerProfile(this.customer).subscribe(
         {
           next: (data) => {
             this.toast.success({ detail: "Success Message", summary: "Customer updation is success", duration: 5000 });

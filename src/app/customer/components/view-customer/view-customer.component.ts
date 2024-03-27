@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Customer } from '../../model/customer';
-import {getCustomerByEmailService  } from '../../services/view-Customer.service';
+import { CustomerService } from '../../services/customer.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-view-customer',
@@ -13,9 +13,9 @@ export class ViewCustomerComponent {
   data:any
   error:string=""
   customerDetails:any
-  constructor(private getCustomerByEmailService: getCustomerByEmailService,private router:Router) {
+  constructor(private customerService: CustomerService,private router:Router) {
 
-    this.getCustomerByEmailService.getCustomerByEmail("gk@gmail.com").subscribe(
+    this.customerService.getCustomerByEmail("gk@gmail.com").subscribe(
       {
         next:(data)=>{
           console.log(data);

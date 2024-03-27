@@ -16,6 +16,7 @@ export class AuthenticationComponent implements OnInit  {
   loginForm!:FormGroup;
   registerForm!:FormGroup
   authenticationType:String="login"
+
   options = [
     { label: 'Login', value: 'login' },
     { label: 'Register', value: 'register' }
@@ -90,6 +91,7 @@ export class AuthenticationComponent implements OnInit  {
           next: (response: Customer) => {
             console.log('String response from backend:', response);
             this.toastr.success('Login Sucess');
+            sessionStorage.setItem('customerEmail', response.email);
             this.router.navigate(['/customer'],{ state: { activeCustomerDetails: response }});
             
           },
@@ -104,6 +106,7 @@ export class AuthenticationComponent implements OnInit  {
           next: (response: Operator) => {
             console.log('String response from backend:', response);
             this.toastr.success('Login Sucess');
+            sessionStorage.setItem('operatorEmail', response.email);
             this.router.navigate(['/operator'],{ state: { activeOperatorDetails: response }});
           },
           error: (error) => {
@@ -117,6 +120,7 @@ export class AuthenticationComponent implements OnInit  {
           next: (response:Admin) => {
             console.log('String response from backend:', response);
             this.toastr.success('Login Sucess');
+            sessionStorage.setItem('adminEmail', response.email);
           },
           error: (error) => {
             console.error('Error:', error.error);
@@ -166,6 +170,7 @@ export class AuthenticationComponent implements OnInit  {
           next: (response: Customer) => {
             console.log('String response from backend:', response);
             this.toastr.success('Register Sucess');
+           
             this.authenticationType="login"
             this.registerForm.reset();
 
@@ -184,7 +189,6 @@ export class AuthenticationComponent implements OnInit  {
             this.toastr.success('Register Sucess');
             this.authenticationType="login"
             this.registerForm.reset();
-
           },
           error: (error) => {
             console.error('Error:', error.error);

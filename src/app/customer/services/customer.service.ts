@@ -15,7 +15,7 @@ export class CustomerService {
     return this.http.get<Customer>(`http://localhost:8080/customer/${email}`);
   }
     
-  updateCustomerService(requestBody:Customer) : Observable<Customer>{
+  updateCustomerProfile(requestBody:Customer) : Observable<Customer>{
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
