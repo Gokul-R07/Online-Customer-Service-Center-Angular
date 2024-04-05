@@ -1,6 +1,6 @@
 
 <div class="container mt-5">
-    <form name="issue" (submit)="addIssueToCustomer()" >
+    <form #issueForm="ngForm" (ngSubmit)="addIssueToCustomer()" >
         <div class="form-group">
             <label for="issueType" class="form-label"><b>Enter the type of issue:</b></label>
             <select #issueType = ngModel class="form-control" size="3" name="issueType" id="issueType" [(ngModel)]="issue.issueType"  required >
@@ -25,7 +25,7 @@
             
         </div>
         
-        <button type="submit" class="btn btn-primary"><b>Save</b></button>
+        <button type="submit" class="btn btn-primary" [disabled]="!issueForm.valid"><b>Save</b></button>
         </form>
 </div>
 

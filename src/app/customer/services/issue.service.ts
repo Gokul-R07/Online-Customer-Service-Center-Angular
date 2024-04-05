@@ -18,7 +18,7 @@ export class IssueService {
   }
 
   deleteIssue(customerId: number, issueId: number|undefined){
-    return this.httpClient.delete(`http://localhost:8080/issue/delete/${customerId}/${issueId}`);
+    return this.httpClient.delete(`http://localhost:8080/issue/delete/${customerId}/${issueId}`,{responseType:"text"});
   }
 
   getIssuesByCustomerId(customerId: number | undefined):Observable<any>{
@@ -38,13 +38,13 @@ export class IssueService {
   }
 
   acceptIssueSolution(issueId:number, solutionId:number):Observable<any>{
-    return this.httpClient.post(`http://localhost:8080/customer/solution/accept/${issueId}`,  solutionId, {responseType:'text'});
+    return this.httpClient.post(`http://localhost:8080/solution/accept/${issueId}`,  solutionId, {responseType:'text'});
   }
+
 
   rejectIssueSolution(issueId:number, solutionId:number):Observable<any>{
-    return this.httpClient.post(`http://localhost:8080/customer/solution/reject/${issueId}`,  solutionId, {responseType:'text'});
+    return this.httpClient.post(`http://localhost:8080/solution/reject/${issueId}`,  solutionId, {responseType:'text'});
   }
-
 
 
 }

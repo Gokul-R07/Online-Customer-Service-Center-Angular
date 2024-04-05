@@ -12,7 +12,8 @@ export class CustomerService {
 
  
   getCustomerByEmail(email: string): Observable<Customer> {
-    return this.http.get<Customer>(`http://localhost:8080/customer/${email}`);
+    console.log()
+    return this.http.get<any>(`http://localhost:8080/customer/k%40gmail.com`);
   }
     
   updateCustomerProfile(requestBody:Customer) : Observable<Customer>{

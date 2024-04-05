@@ -10,13 +10,23 @@ import { CustomerService } from '../../services/customer.service';
   styleUrls: ['./update-customer.component.css']
 })
 export class UpdateCustomerComponent implements OnInit {
+
+  id: number = 0;
+  customerEmail:any;
   updateForm!: FormGroup;
   email:string="";
   customerId?: number;
   customer: Customer = new Customer();
   error: string = "";
 
-  constructor(private fb: FormBuilder, private customerService:CustomerService,private updateCustomerService: UpdateCustomerService, private toast: NgToastService) {   this.fetchCustomerDetails();}
+  constructor(private fb: FormBuilder, private customerService:CustomerService,private updateCustomerService: UpdateCustomerService, private toast: NgToastService) {   
+
+    this.customerEmail=sessionStorage.getItem('email');
+    const storedId = sessionStorage.getItem('id');
+    if (storedId) {
+      this.id = parseInt(storedId, 10);
+    }
+  }
 
   ngOnInit(): void {
     this.updateForm = this.fb.group({
@@ -27,6 +37,8 @@ export class UpdateCustomerComponent implements OnInit {
       phoneNumber: ['', Validators.required],
       city: ['', Validators.required]
     });
+
+    this.fetchCustomerDetails();
   
   }
 
@@ -52,12 +64,18 @@ export class UpdateCustomerComponent implements OnInit {
     }
   }
   fetchCustomerDetails() {
-    this.customerService.getCustomerByEmail("gk@gmail.com").subscribe({
+    this.customerService.getCustomerByEmail(this.customerEmail).subscribe({
       next: (data) => {
         if (data) {
           console.log(data);
           this.error = "";
-          // this.updateForm.get('firstName').setValue(data.firstName);
+            this.updateForm.get('firstName')?.setValue(data.firstName);
+            this.updateForm.get('lastName')?.setValue(data.lastName);
+            this.updateForm.get('email')?.setValue(data.email);
+            this.updateForm.get('password')?.setValue(data.password);
+            this.updateForm.get('phoneNumber')?.setValue(data.phoneNumber);
+            this.updateForm.get('city')?.setValue(data.city);
+         
         } else {
           console.log("Data is null");
         }

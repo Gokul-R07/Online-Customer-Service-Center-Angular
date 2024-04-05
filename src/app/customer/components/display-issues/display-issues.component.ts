@@ -13,7 +13,10 @@ import { IssueService} from '../../services/issue.service';
   imports: [CommonModule]
 })
 export class DisplayIssueComponent
+
 {
+  id: number = 0;
+  email:any;
   issue : Issue= new Issue();
   issues:Issue[]=[];
   message: string = "";
@@ -21,7 +24,13 @@ export class DisplayIssueComponent
 
   constructor(private issueService: IssueService,private router:Router, private sharedDataService:SharedDataService)
    {
-    this.issueService.getIssuesByCustomerId(1).subscribe(
+
+    this.email=sessionStorage.getItem('email');
+    const storedId = sessionStorage.getItem('id');
+    if (storedId) {
+      this.id = parseInt(storedId, 10);
+    }
+    this.issueService.getIssuesByCustomerId(this.id).subscribe(
       {
         next: (data) => {
           console.log(data);
@@ -41,40 +50,40 @@ export class DisplayIssueComponent
    }
    
 
-   deleteIssue(customerId?:number, issueId?: number) {
+   deleteIssue( issueId: number) {
 
     console.log("delete id:" + issueId);
 
-    if (confirm("Do you want to Delete Issue id:" + issueId))
+    if (confirm("Do you want to delete this issue"))
 
-    this.issueService.deleteIssue(1,issueId).subscribe(
+    this.issueService.deleteIssue(this.id,issueId).subscribe(
       {
         next: (resp) => {
           console.log(resp);
           // delete issue with id in local array
           this.issues = this.issues.filter((a) => a.issueId != issueId);
-          this.message = "Deleted Issue with id:" + issueId;
+          this.message = "Deleted Issue Succesfully" 
           this.errorMessage = "";
         },
         error: (err) => {
           console.log(err);
           this.message = "";
           this.errorMessage = "Coule not Delete Issue.";
-        }
+        } 
       }
     );
   }
 
 
   
-  public navigateToUpdate(customerId:number,issueId:number){
-    this.sharedDataService.setCustomerId(customerId);
+  public navigateToUpdate(issueId:number){
+    this.sharedDataService.setCustomerId(this.id);
     this.sharedDataService.setIssueId(issueId);
     this.router.navigate(['customer/edit-issue']);
   }
 
-  public navigateToSolution(customerId:number,issueId:number){
-    this.sharedDataService.setCustomerId(customerId);
+  public navigateToSolution(issueId:number){
+    this.sharedDataService.setCustomerId(this.id);
     this.sharedDataService.setIssueId(issueId);
     this.router.navigate(['customer/view-solution']);
   }

@@ -11,7 +11,7 @@
 <table  *ngIf="issues.length>0" class="table  table-striped custom-table">
   <thead>
     <tr>
-      <th>Issue No</th>
+      <th>Serial No</th>
       <th>Issue Type</th>
       <th>Description</th>
       <th>Created On</th>
@@ -27,9 +27,9 @@
       <td>{{ issue.issueCreationDate | date }}</td>
       <td>{{ issue.issueStatus }}</td>
       <td>
-        <button type="button" class="btn btn-primary" (click)="navigateToUpdate(1, issue.issueId||0)">Edit</button>
-        <button type="button" class="btn btn-danger" (click)="deleteIssue(1, issue.issueId)">Delete</button>
-        <button type="button" class="btn btn-success"  (click)="navigateToSolution(1, issue.issueId||0)">View Solution</button>
+        <button type="button" class="btn btn-primary" (click)="navigateToUpdate(issue.issueId) " [disabled]="this.issue.ticketClose==true">Edit</button>
+        <button type="button" class="btn btn-danger" (click)="deleteIssue(issue.issueId)" [disabled]="this.issue.ticketClose==true">Delete</button>
+        <button type="button" class="btn btn-success"  (click)="navigateToSolution(issue.issueId)">View Solution</button>
       </td>
     </tr>
   </tbody>

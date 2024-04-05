@@ -32,7 +32,6 @@ const routes: Routes = [
   component: CustomerComponent,
   children: [
    
-    { path: 'get-all-issues', component:GetIssuesByCustomerIdComponent },
     {path: 'view-customer', component:ViewCustomerComponent},
     { path: 'create-issue', component: CreateIssueComponent },
     {path:'edit-issue', component:EditIssueComponent},

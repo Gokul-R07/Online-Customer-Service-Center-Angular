@@ -53,7 +53,7 @@ export class EditIssueComponent {
   
 
   updateIssueDescription() {
-    this.issueService.updateIssueDescription(1,this.issueId, this.issueDescription).subscribe(
+    this.issueService.updateIssueDescription(this.customerId,this.issueId, this.issueDescription).subscribe(
       (updatedIssue) => {
         this.toast.success({detail:"Success Message", summary:"Issue Description updated", duration:5000});
         console.log('Issue description updated successfully:', updatedIssue);

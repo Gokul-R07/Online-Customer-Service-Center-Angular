@@ -18,6 +18,8 @@ interface Column {
 })
 export class OperatorModuleComponent implements OnInit {
 
+  id: number = 0;
+
   data!:[];
   operator!:any;
   operatorDetails: any;
@@ -30,18 +32,13 @@ export class OperatorModuleComponent implements OnInit {
 
   constructor(private dataService: DataService,private route: ActivatedRoute,private router: Router, private http:HttpClient) { 
 
-     // state to reference of the operator.
-    // this logic is to be reviewed.
-    const navigation = this.router.getCurrentNavigation();
-    
-  if (navigation?.extras.state) {
-      this.operatorDetails = navigation.extras.state['activeOperatorDetails'];
-      console.log('Operator Details:', this.operatorDetails);
-      this.operatorId = this.operatorDetails.operatorId
 
-      localStorage.setItem('Id',this.operatorId);
-  }
 
+    const storedId = sessionStorage.getItem('id');
+    if (storedId) {
+      this.id = parseInt(storedId, 10);
+    }
+   console.log("id",this.id)
 }
 
 
@@ -68,7 +65,7 @@ export class OperatorModuleComponent implements OnInit {
 // get all allocated issue by  id
 
 
-this.http.get('http://localhost:8080/allocated-issue-by-id/'+ localStorage.getItem('Id')).subscribe(
+this.http.get('http://localhost:8080/allocated-issue-by-id/'+this.id).subscribe(
   (response: any)=>{
     
     this.data = response;

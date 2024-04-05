@@ -19,7 +19,7 @@ export class AuthenticationService {
   private operatorLoginUrl : string = "http://localhost:8080/operator/login";
   private adminLoginUrl : string = "http://localhost:8080/loginAdmin";
   private customerRegisterUrl : string = "http://localhost:8080/customer";
-  private operatorRegisterUrl : string = "http://localhost:8080/operator/register";
+  private operatorRegisterUrl : string = "http://localhost:8080/admin/register-operator";
 
   public customerLogin(requestBody:LoginInput) : Observable<Customer>{
      const httpOptions = {

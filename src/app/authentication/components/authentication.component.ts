@@ -91,12 +91,9 @@ export class AuthenticationComponent implements OnInit  {
           next: (response: Customer) => {
             console.log('String response from backend:', response);
             this.toastr.success('Login Sucess');
-<<<<<<< HEAD
-            this.router.navigate(['/customer'],{ state: { activeCustomerId: response.customerId }});
-=======
-            sessionStorage.setItem('customerEmail', response.email);
+            sessionStorage.setItem('id', response.customerId.toString());
+            sessionStorage.setItem('email', response.email);
             this.router.navigate(['/customer'],{ state: { activeCustomerDetails: response }});
->>>>>>> ec69067f3c8320e5fba4a1a60643bc81b2d32b90
             
           },
           error: (error) => {
@@ -107,10 +104,11 @@ export class AuthenticationComponent implements OnInit  {
         break;
       case 'Operator':
         this.authenticationService.operatorLogin(this.loginForm.value).subscribe({
-          next: (response: Operator) => {
+          next: (response: any) => {
             console.log('String response from backend:', response);
             this.toastr.success('Login Sucess');
-            sessionStorage.setItem('operatorEmail', response.email);
+            sessionStorage.setItem('id', response.operatorId);
+            sessionStorage.setItem('email', response.email);
             this.router.navigate(['/operator'],{ state: { activeOperatorDetails: response }});
           },
           error: (error) => {
